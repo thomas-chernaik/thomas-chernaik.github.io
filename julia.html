@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+div.image{
+ position: relative;
+ left: 100 vw
+}
+
+
+</style>
+width: <input type="text" id="width" value="width">
+<br>
+height: <input type="text" id="height" value="height">
+<br>
+c real: <input type="text" id="cx" value="c real">
+<br>
+c imaginary: <input type="text" id="cy" value="c imaginary">
+<br>
+real centre: <input type="text" id="realcentre" value="real centre">
+<br>
+imaginary centre: <input type="text" id="imaginarycentre" value="imaginary centre">
+<br>
+zoom: <input type="text" id="zoom" value="zoom"> <button onclick="plus('zoom')">zoom in</button> <button onclick="minus('zoom')">zoom out</button>
+<br>
+
+<button onclick="myFunction()">Get fractal</button>
+<div class="image">
+ <img id="image" src="store.png" alt="fractal" height="300" width="300">
+</div>
+<script>
+function myFunction() {
+    var myurl = "https://thomasch.pythonanywhere.com/julia/get?width=" + document.getElementById("width").value + "&height=" + document.getElementById("height").value + "&cx=" + document.getElementById("cx").value + "&cy=" + document.getElementById("cy").value + "&realcentre=" + document.getElementById("realcentre").value + "&imaginarycentre=" + document.getElementById("imaginarycentre").value + "&zoom=" + document.getElementById("zoom").value
+    document.getElementById("image").src = myurl
+}
+function plus(key){
+    document.getElementById(key).value -= -1
+    myFunction()
+}
+function minus(key){
+    document.getElementById(key).value -= 1
+    myFunction()
+}
+</script>
+
+</body>
+</html>
