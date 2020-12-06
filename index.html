@@ -1,47 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+</head>
+<header>
+    <h1>Thomas's websites</h1>
+</header>
 <body>
-<style>
-div.image{
- position: relative;
- left: 100 vw
-}
-
-
-</style>
-width: <input type="text" id="width" value="width">
-<br>
-height: <input type="text" id="height" value="height">
-<br>
-c real: <input type="text" id="cx" value="c real">
-<br>
-c imaginary: <input type="text" id="cy" value="c imaginary">
-<br>
-real centre: <input type="text" id="realcentre" value="real centre">
-<br>
-imaginary centre: <input type="text" id="imaginarycentre" value="imaginary centre">
-<br>
-zoom: <input type="text" id="zoom" value="zoom"> <button onclick="plus('zoom')">zoom in</button> <button onclick="minus('zoom')">zoom out</button>
-<br>
-
-<button onclick="myFunction()">Get fractal</button>
-<div class="image">
- <img id="image" src="store.png" alt="fractal" height="300" width="300">
-</div>
-<script>
-function myFunction() {
-    var myurl = "https://thomasch.pythonanywhere.com/julia/get?width=" + document.getElementById("width").value + "&height=" + document.getElementById("height").value + "&cx=" + document.getElementById("cx").value + "&cy=" + document.getElementById("cy").value + "&realcentre=" + document.getElementById("realcentre").value + "&imaginarycentre=" + document.getElementById("imaginarycentre").value + "&zoom=" + document.getElementById("zoom").value
-    document.getElementById("image").src = myurl
-}
-function plus(key){
-    document.getElementById(key).value -= -1
-    myFunction()
-}
-function minus(key){
-    document.getElementById(key).value -= 1
-    myFunction()
-}
-</script>
-
+    <p></p>
+    <a href="http://thomasc.me/perudo">Play perudo</a> 
+    <p></p>
+    <a href="http://thomasc.me/lines">Make a picture into a bunch of lines</a>
+    <p></p>
 </body>
-</html>
+
+
+
+<style>
+    header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+a:link, a:visited {
+  background-color: white;
+  color: black;
+  border: 2px solid green;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  left: 50%; 
+  transform: translateX(-50%);
+
+}
+
+a:hover, a:active {
+    
+  background-color: green;
+  color: white;
+}
+</style>
