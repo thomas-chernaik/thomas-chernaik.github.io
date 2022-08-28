@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ollies chicken and rice">
+    <meta name="author" content="Thomas Chernaik">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel = "stylesheet" type = "text/css" href = "topnav.css">
+    <link rel = "stylesheet" type = "text/css" href = "golCanvas.css">
+
+    <title>gol</title>
+</head>
+<body>
+<div class="buttons">
+<button type="button" onclick="clearArray(200,100)">Clear</button>
+<button type="button" id="startstop" onclick="start()">Start</button>
+<button type="button" onclick="randomArray(200,100)">Random</button>
+<button type="button" id="save" onclick="saveCanvas()">Save</button>
+<button type="button" id="load" onclick="loadCanvas()">Load</button>
+
+</div>
+<canvas id="myCanvas" width="600" height="300" style="border:1px solid #000000;"></canvas>
+</body>
+<script src="gol.js"></script>
+</html>

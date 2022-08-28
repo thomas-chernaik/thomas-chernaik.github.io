@@ -1,0 +1,43 @@
+canvas{
+    border: 0;
+    padding: 0;
+    width: auto;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+    clear: both;
+    position: absolute;
+    top:45px;
+}
+body{
+    background-color: #F4F0E8;
+    font-family: Roboto, sans-serif;
+}
+form{
+    clear:both;
+    position:absolute;
+}
+form input{
+    padding: 5px 5px;
+    margin: 1px;
+    width: 50px;
+
+}
+button{
+    border:none;
+  display: block;
+  color: white;
+  width: 199px;
+  padding: 5px 5px;
+    margin: 1px;
+  float:left;
+  text-decoration: none;
+  background-color: #e3bd85;
+    border-radius: 2px;
+
+}
+button:hover {
+  background-color: #771D00;
+}

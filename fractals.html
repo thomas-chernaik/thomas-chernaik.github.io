@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ollies chicken and rice">
+    <meta name="author" content="Thomas Chernaik">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+
+    <link rel = "stylesheet" type = "text/css" href = "topnav.css">
+    <link rel = "stylesheet" type = "text/css" href = "fractals.css">
+
+    <title>fractals</title>
+</head>
+<body>
+
+<form>
+    <label for="cx">Cx:</label>
+    <input type="number" id="cx" name="cx" step="0.1" value="0.3" style="height:auto">
+    <label for="cy">Cy:</label>
+    <input type="number" id="cy" name="cy" step="0.1" value="-0.1">
+    <label for="esc">Escape Count:</label>
+    <input type="number" id="esc" name="esc" step="10" value="5">
+
+<button type="button" id="gen" onclick="generate()">Generate</button>
+</form>
+<canvas id="myCanvas" width="600" height="600" style="border:1px solid #000000;"></canvas>
+<script src="fractals.js" async="true"></script>
+</body>
+</html>

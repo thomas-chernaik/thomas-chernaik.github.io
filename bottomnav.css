@@ -1,0 +1,35 @@
+.bottomnavbar{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+      background-color: #F4F0E8;
+
+  }
+.bottomnav{
+    margin: 0;
+  padding: 0;
+  border-right: 1px solid #771D00;
+  border-top: 1px solid #771D00;
+    float:left;
+    width: 33.333%;
+}
+.bottomnav a{
+    margin: 0;
+  border: 0;
+  display: block;
+  text-align: center;
+  padding: 2%;
+  text-decoration: none;
+  color: #771D00;
+}
+footer{
+  margin: 0;
+  padding-top:5%;
+  border: 0;
+  font-family: Roboto, sans-serif;
+}
