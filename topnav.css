@@ -1,0 +1,43 @@
+.topnavbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+
+}
+
+.topnav {
+  float: left;
+  width: 33.333%;
+
+}
+.topnavselected {
+  float: left;
+  width: 33.333%;
+}
+
+.topnav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #e3bd85;
+
+}
+.topnavselected a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 16px;
+  text-decoration: none;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #e3bd85;
+}
+
+.topnav a:hover {
+  background-color: #771D00;
+  padding: 16px 16px;
+}

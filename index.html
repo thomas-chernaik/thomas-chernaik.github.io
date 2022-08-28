@@ -1,52 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="description" content="ollies chicken and rice">
+    <meta name="author" content="Thomas Chernaik">
+    <title>Home</title>
+
 </head>
-<header>
-    <h1>Thomas's websites</h1>
-</header>
 <body>
-    <p></p>
-    <a href="https://thomas-chernaik.github.io/perudo">Play perudo</a> 
-    <p></p>
-    <a href="https://thomas-chernaik.github.io/lines">Make a picture into a bunch of lines</a>
-    <p></p>
-    <a href="https://thomas-chernaik.github.io/pendulum">Double pendulum thing</a>
-    <p></p>
-    <a href="https://thomas-chernaik.github.io/walking">watch some little lights go for a walk</a>
-    <p></p>
-    <a href="https://thomas-chernaik.github.io/chicken">ollies chicken and rive</a>
-    <p></p>
+<div class="container-fluid">
+    <div class="col-sm-12">
+        <ul class="topnavbar">
+            <li class="topnavselected"><a href="index.html">Home</a></li>
+            <li class="topnav"><a href="contact.html">Contact</a></li>
+            <li class="topnav"><a href="gol.html">Game of life</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container-fluid">
+    <h1>Welcome to Thomas Chernaik's portfolio!</h1>
+    <h2>Procedural Grass</h2>
+    <div class="maintext">
+        <p>For this project I wanted to make grass similar to how grass works in some AAA games, and using real geometry for each blade.
+            There are two stages to the grass generation. A stage in a compute shader which calculates a location and rotation for each blade,
+            and then a stage in the surface shader which calculates sway, lighting, colour, and if the blade is flattened by an object. I ended up
+            with a grass generator that I was very happy with. It looks good and is optimized enough that it runs at over 100 fps with 500000 visible blades.
+        </p>
+    </div>
+    <video width="720" height="480" controls>
+        <source src="grassSampleVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h2>Procedural Animation</h2>
+    <div class="maintext">
+        <p>I have had an interest in procedural animation for a while before this project, but at that time I was not skilled enough to
+            actually create a complex procedural animation of my own. A few years later I began this project: to make a procedurally animated
+            "tentacle monster" which can move around with convincing animation. I calculate new feet positions randomly in the direction of velocity so
+            that a minimum number of tentacles are always in spawn. When feet reach a certain distance from the centre, they despawn, leading to new ones spawing.
+            In order to have the tentacles convincingly spawn and despawn, I made a script to shrink the mesh. This is in the form of a compute shader which
+            clips the mesh down to the required size. This all ended up with a monster-character that can be player controlled, and has convincing animation.
+        </p>
+    </div>
+    <video width="720" height="480" controls>
+        <source src="grassSampleVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h2>FABRIK</h2>
+    <div class="maintext">
+        <p>For the procedural animation project, the poses of the tentacles were calculated using FABRIK, however I was using someone else's implementation
+            as I had yet to make my own. Following completing the monster, I created my own FABRIK implementation for unity.
+        </p>
+    </div>
+    <video width="720" height="480" controls>
+        <source src="grassSampleVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h2>Peer to Peer multiplayer</h2>
+    <div class="maintext">
+        <p>Multiplayer is a part of many of the biggest games these days, and I thought it would be fun to have an attempt at a simple multiplayer system.
+            I wanted to use a udp peer to peer system, as this would require me to write code to communicate over the internet, but wouldn't require me
+            to require usage of external hosting. In the end, I successfully completed a peer to peer system in unity, as you can see in the video before
+            where the two clients communicate across the local network. The black cube is controlled by the left client and the white cube is controlled by the right client
+        </p>
+    </div>
+    <video width="720" height="480" controls>
+        <source src="grassSampleVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h2>Slime mould simulation</h2>
+    <div class="maintext">
+        <p>I began this project after watching this
+<a href="https://www.youtube.com/watch?v=X-iSQQgOd1A&t=936s">youtube video in which a similar project is made.</a>
+        This was my first time using HLSL or compute shaders, so I had to learn how to use them for this project.
+        </p>
+    </div>
+    <video width="720" height="480" controls>
+        <source src="grassSampleVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+
+</div>
+
+<footer>
+    <ul class="bottomnavbar">
+        <li class="bottomnav"><a href="index.html">Home</a></li>
+        <li class="bottomnav"><a href="contact.html">Contact</a></li>
+        <li class="bottomnav"><a href="gol.html">Game of life</a></li>
+    </ul>
+</footer>
+<link rel="stylesheet" type="text/css" href="topnav.css">
+<link rel="stylesheet" type="text/css" href="bottomnav.css">
+<link rel="stylesheet" type="text/css" href="home.css">
 </body>
-
-
-
-<style>
-    header {
-  padding: 60px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
-  font-size: 30px;
-}
-a:link, a:visited {
-  background-color: white;
-  color: black;
-  border: 2px solid green;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  position: relative;
-  left: 50%; 
-  transform: translateX(-50%);
-
-}
-
-a:hover, a:active {
-    
-  background-color: green;
-  color: white;
-}
-</style>
+</html>
