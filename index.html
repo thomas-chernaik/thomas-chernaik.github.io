@@ -25,10 +25,10 @@
     <h1>Welcome to Thomas Chernaik's portfolio!</h1>
     <h2>Procedural Grass</h2>
     <div class="maintext">
-        <p>For this project I wanted to make grass similar to how grass works in some AAA games, and using real geometry for each blade.
-            There are two stages to the grass generation. A stage in a compute shader which calculates a location and rotation for each blade,
-            and then a stage in the surface shader which calculates sway, lighting, colour, and if the blade is flattened by an object. I ended up
-            with a grass generator that I was very happy with. It looks good and is optimized enough that it runs at over 100 fps with 500000 visible blades.
+        <p>For this project I wanted to make grass similar to how grass works in some AAA games, using real geometry for each blade.
+            There are two stages to the grass generation. The first stage is in a compute shader which calculates a location and rotation for each blade.
+            Then a stage in the surface shader calculates sway, lighting, colour, and if the blade is flattened by an object. 
+            The final result is optimized enough that it runs at over 100 fps with 500000 visible blades, which I am very happy with.
         </p>
         <button type="button" onclick="window.open('https://github.com/thomas-chernaik/ProceduralGrass','_blank')">Github</button>
     </div>
