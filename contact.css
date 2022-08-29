@@ -10,3 +10,7 @@ h1{
     color: #1A1A1A;
 
 }
+p{
+    word-wrap: break-word;
+    max-width: 600px;
+}
