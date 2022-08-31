@@ -22,6 +22,7 @@ h2{
 .maintext p{
     word-wrap: break-word;
     max-width: 600px;
+    text-align:centre;
 }
 body{
     background-color: #F4F0E8;
