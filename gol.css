@@ -30,7 +30,6 @@ body{
     border: 0;
     padding: 0;
     width: 650px;
-    max-width:100%;
     aspect-ratio: 2/1;
     overflow: visible;
 }
@@ -39,7 +38,6 @@ body{
     border: 0;
     padding: 0;
     width: 650px;
-    max-width: 100%;
     aspect-ratio: 1/1;
     overflow: visible;
 }
