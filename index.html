@@ -1,84 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
-    <meta name="description" content="Thomas's portfolio">
-    <meta name="author" content="Thomas Chernaik">
-    <title>Thomas - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+    <style>
+        /* Dark Mode Theme Styles */
+        /* Style the body with a dark purple background color for dark mode */
+        .dark-mode {
+            background-color: #2a2253; /* Dark purple background */
+            color: #fff; /* White text color */
+        }
 
+        /* Style the navigation menu with light text on a dark purple background */
+        .dark-mode nav {
+            background-color: #180e2c; /* Darker purple background */
+        }
+
+        /* Style the navbar links with larger size and wider spacing */
+        .dark-mode nav a {
+            color: #fff; /* White text color */
+        }
+
+        /* Style the header with a purple background and white text */
+        .dark-mode header {
+            background-color: #180e2c; /* Even darker purple background */
+            color: #fff; /* White text color */
+        }
+
+        /* Style the "About Me" section */
+        .dark-mode #about {
+            background-color: #1f0a32; /* Darker purple background */
+        }
+
+        /* Style the project cards with a different color (darker purple) */
+        .dark-mode .project {
+            background-color: #1f0a32; /* Darker purple background */
+        }
+
+
+        /* Style the project title */
+        .dark-mode .project h2 {
+            color: #fff; /* White text color */
+        }
+
+
+        /* Style the contact info section */
+        .dark-mode #contact-info {
+            background-color: #1f0a32; /* Darker purple background */
+        }
+
+
+        /* Link styles for dark-mode class */
+        .dark-mode a {
+            color: #b3b3f3; /* New text color for links with dark-mode class */
+        }
+
+        /* Dark Mode/Light Mode Button Styles */
+        .dark-mode button.dark-mode-btn {
+            background-color: #f5f2e9; /* Light sandy background*/
+            color: #000; /* black text color */
+        }
+
+        /* Dark Mode/Light Mode Button Styles */
+        button.dark-mode-btn {
+            background-color: #2a2253; /* Dark purple background */
+            color: #fff; /* White text color */
+        }
+
+        /* Reset some default browser styles */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Light Sandy Theme Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f2e9; /* Light sandy background */
+            color: #333; /* Dark text color */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the navigation menu with dark text on a light sandy background */
+        nav {
+            background-color: #d3c0a3; /* Light sandy background for the navbar */
+            text-align: center;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Style the navbar links with larger size and wider spacing */
+        nav a {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 0 20px;
+            font-size: 18px;
+            color: #333; /* Dark text color */
+            text-decoration: none;
+        }
+
+        /* Style the header with a sandy background and dark text */
+        header {
+            background-color: #d3c0a3; /* Light sandy background for the header */
+            color: #333; /* Dark text color */
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Style the "About Me" section */
+        #about {
+            background-color: #e1d8c4; /* Lighter sandy background for "About Me" section */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+
+        }
+
+        /* CSS for text with a maximum width before wrapping */
+        .text-container {
+            max-width: 800px; /* Adjust the maximum width as needed */
+            word-wrap: normal; /* Prevents word breaking */
+        }
+
+        /* Style the project cards with a sandy background */
+        .project {
+            background-color: #e1d8c4; /* Lighter sandy background for project cards */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        /* Style the project video */
+
+        .project video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Style the project title */
+
+        .project h2 {
+            font-size: 24px;
+            margin-top: 10px;
+            color: #333; /* Dark text color */
+        }
+
+        /* Style the project description */
+
+        .project p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Style the contact info section */
+
+        #contact-info {
+            background-color: #e1d8c4; /* Lighter sandy background for contact info */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+        }
+
+        /* Add responsiveness for smaller screens */
+        @media (max-width: 768px) {
+            nav a {
+                padding: 1px 4px; /* Larger padding and wider spacing */
+                margin: 7px 4px; /* Wider spacing */
+                font-size: 18px; /* Larger font size */
+            }
+
+
+        }
+
+        .custom-padding {
+            padding: 10px;
+        }
+
+
+    </style>
+    <script>
+        // Function to toggle between dark mode and light mode
+        function toggleDarkMode() {
+            const body = document.body;
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                //change the button text
+                document.querySelector('.dark-mode-btn').innerHTML = 'Dark Mode';
+                //store the theme selection in the browser's local storage
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark-mode');
+                //change the button text
+                document.querySelector('.dark-mode-btn').innerHTML = 'Light Mode';
+                //store the theme selection in the browser's local storage
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        //function to scroll to a section with a sticky navbar
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const offset = -navHeight; // Use the nav height as the offset
+                const sectionTop = section.offsetTop + offset;
+                window.scrollTo({
+                    top: sectionTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="col-sm-12">
-        <ul class="topnavbar">
-            <li class="topnavselected"><a href="index.html">Home</a></li>
-            <li class="topnav"><a href="contact.html">Contact</a></li>
-            <li class="topnav"><a href="gol.html">Game of Life</a></li>
-        </ul>
-    </div>
-</div>
-<div class="container-fluid">
-    <h1>Welcome to Thomas Chernaik's portfolio!</h1>
-    <h2>Procedural Grass</h2>
-    <div class="maintext">
-        <p>For this project I wanted to make grass similar to how grass works in some AAA games, using real geometry for each blade.
-            There are two stages to the grass generation. The first stage is in a compute shader which calculates a location and rotation for each blade.
-            Then a stage in the surface shader calculates sway, lighting, colour, and if the blade is flattened by an object. 
-            The final result is optimized enough that it runs at over 100 fps with 500000 visible blades, which I am very happy with.
-        </p>
-        <a href="https://github.com/thomas-chernaik/ProceduralGrass" target-"_blank">Find the full source code here</a>
-    </div>
-    <video width="720" height="auto" controls>
-        <source src="GrassFootage.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <h2>Procedural Animation</h2>
-    <div class="maintext">
-        <p> To further my interest in procedural animation I decided to design a project which would develop the skillset. This took the form of a procedurally animated
-            "tentacle monster" which can move around with convincing animation. I calculate new feet positions randomly in the direction of velocity so
-            that a minimum number of tentacles are always in spawn. When feet reach a certain distance from the centre, they despawn, leading to new ones spawing.
-            In order to have the tentacles convincingly spawn and despawn, I made a script to shrink the mesh. This is in the form of a compute shader which
-            clips the mesh down to the required size. By the end of my project I had produced a monster-character with convincing animation that can be player controlled.
-           
-        </p>
-        <a href="https://github.com/thomas-chernaik/tendrilMonster" target-"_blank">Find the full source code here</a>
-    </div>
-    <video width="720" height="auto" controls>
-        <source src="monsterFootage.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <h2>FABRIK</h2>
-    <div class="maintext">
-        <p> Following the procedural animation project, I decided to create my own FABRIK implementation for unity, having initially used another implementation. 
+<nav>
+    <a href="javascript:void(0);" onclick="scrollToSection('about')">About Me</a>
+    <a href="javascript:void(0);" onclick="scrollToSection('projects')">Projects</a>
+    <a href="javascript:void(0);" onclick="scrollToSection('contact-info')">Contact</a>
+    <a href="https://example.com/path-to-your-cv.pdf" target="_blank">Download CV (PDF)</a>
+</nav>
+<header>
+    <h1>Welcome to Thomas Chernaik's Portfolio</h1>
+    <button class="dark-mode-btn" onclick="toggleDarkMode()">Dark Mode</button>
+</header>
+<section id="about">
+    <h2>About Me</h2>
+    <p class="text-container">Third year computer science undergraduate at the University of Leeds, expected to achieve
+        a First Class BSc in
+        2024 and graduate with a MEng in 2025. Team player in group projects and for a university hockey team.
+        Experience with personal and educational projects in Python since 2018, C# since 2020 and C++ since 2022.
+        Aspiring to work as a Game Developer.</p>
+</section>
+<section id="projects">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                        <video width="720" height="auto" controls>
+                            <source src="GrassFootage.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h2>Procedural Grass</h2>
+                        <p class="text-container">For this project I wanted to make grass similar to how grass works in some AAA games,
+                            using real geometry for
+                            each blade.
+                            There are two stages to the grass generation. The first stage is in a compute shader which calculates a
+                            location and rotation for each blade.
+                            Then a stage in the surface shader calculates sway, lighting, colour, and if the blade is flattened by an
+                            object.
+                            The final result is optimized enough that it runs at over 100 fps with 500000 visible blades, which I am
+                            very happy with.
+                        </p>
+                        <a href="https://github.com/thomas-chernaik/ProceduralGrass"
+                           target-"_blank">Find the full source code here</a>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                    <video width="720" height="auto" controls>
+                        <source src="FABRIKFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>FABRIK</h2>
+                    <p> Following the procedural animation project, I decided to create my own FABRIK implementation for unity, having initially used another implementation.
             I then tested the FABRIK implementation with a simple procedurally animated cat.
         </p>
         <a href="https://github.com/thomas-chernaik/FABRIK" target-"_blank">Find the full source code here</a>
-    </div>
-    <video width="720" height="auto" controls>
-        <source src="FABRIKFootage.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <h2>Peer to Peer multiplayer</h2>
-    <div class="maintext">
-        <p> I set myself the challenge of designing a simple multiplayer system, as multiplayer is part of many of the biggest modern games.
-            I wanted to use a udp peer to peer system, as this would require me to write code to communicate over the internet, but wouldn't require usage of external hosting. 
-            In the end, I successfully completed a peer to peer system in unity, as you can see in the video before
-            where the two clients communicate across the local network. The black cube is controlled by the left client and the white cube is controlled by the right client
-        </p>
-        <a href="https://github.com/thomas-chernaik/p2punitymultiplayer" target-"_blank">Find the full source code here</a>
-    </div>
-    <video width="720" height="auto" controls>
-        <source src="p2pmpFootage.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <h2>Slime mould simulation</h2>
-    <div class="maintext">
-        <p>I began this project after watching this
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                        <video width="720" height="auto" controls>
+                        <source src="monsterFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+                        <h2>Procedural Animation</h2>
+                        <p class="text-container"> To further my interest in procedural animation I decided to design a project which
+                            would develop the skillset. This took the form of a procedurally animated
+                            "tentacle monster" which can move around with convincing animation. I calculate new feet positions randomly
+                            in the direction of velocity so
+                            that a minimum number of tentacles are always in spawn. When feet reach a certain distance from the centre,
+                            they despawn, leading to new ones spawing.
+                            In order to have the tentacles convincingly spawn and despawn, I made a script to shrink the mesh. This is
+                            in the form of a compute shader which
+                            clips the mesh down to the required size. By the end of my project I had produced a monster-character with
+                            convincing animation that can be player controlled.
+
+                        </p>
+                        <a href="https://github.com/thomas-chernaik/tendrilMonster"
+                           target-"_blank">Find the full source code here</a>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                    <video width="720" height="auto" controls>
+                        <source src="p2pmpFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Peer to Peer multiplayer</h2>
+                    <p> I set myself the challenge of designing a simple multiplayer system, as multiplayer is part of many of the biggest modern games.
+                    I wanted to use a udp peer to peer system, as this would require me to write code to communicate over the internet, but wouldn't require usage of external hosting.
+                    In the end, I successfully completed a peer to peer system in unity, as you can see in the video before
+                    where the two clients communicate across the local network. The black cube is controlled by the left client and the white cube is controlled by the right client
+                </p>
+                <a href="https://github.com/thomas-chernaik/p2punitymultiplayer"
+                   target-"_blank">Find the full source code here</a>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                    <video width="720" height="auto" controls>
+                        <source src="slimeFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Slime mould simulation</h2>
+                    <p>I began this project after watching this
 <a href="https://www.youtube.com/watch?v=X-iSQQgOd1A&t=936s">youtube video in which a similar project is made.</a>
             This project was where I learned how to use HLSL and compute shaders for the first time.
             There are two main steps: A step in which the direction of each spore is calculated, and a step in which
@@ -86,25 +344,94 @@
             of the spores with an image.
         </p>
         <a href="https://github.com/thomas-chernaik/SlimeMould" target-"_blank">Find the full source code here</a>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                    <video width="720" height="auto" controls>
+                        <source src="FABRIKFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>We suck at deliveries</h2>
+                    <p class="text-container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae purus eget nunc
+                        gravida commodo vel eu
+                        FABRIK velit.</p>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                    <video width="720" height="auto" controls>
+                        <source src="FABRIKFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Chess</h2>
+                    <p class="text-container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae purus eget nunc
+                        gravida commodo vel eu
+                        FABRIK velit.</p>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                    <video width="720" height="auto" controls>
+                        <source src="FABRIKFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Scribbles</h2>
+                    <p class="text-container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae purus eget nunc
+                        gravida commodo vel eu
+                        FABRIK velit.</p>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                    <video width="720" height="auto" controls>
+                        <source src="FABRIKFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Flashcards</h2>
+                    <p class="text-container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae purus eget nunc
+                        gravida commodo vel eu
+                        FABRIK velit.</p>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Add more project sections as needed -->
+        </div>
     </div>
-
-    <video width="720" height="auto" controls>
-        <source src="slimeFootage.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <p style="text-align:center">Page written by Thomas Chernaik</p>
-    </div>
-
-<footer>
-    <ul class="bottomnavbar">
-        <li class="bottomnav"><a href="index.html">Home</a></li>
-        <li class="bottomnav"><a href="contact.html">Contact</a></li>
-        <li class="bottomnav"><a href="gol.html">Game of Life</a></li>
-    </ul>
-</footer>
-<link rel="stylesheet" type="text/css" href="topnav.css">
-<link rel="stylesheet" type="text/css" href="bottomnav.css">
-<link rel="stylesheet" type="text/css" href="home.css">
+</section>
+<section id="contact-info">
+    <h2>Contact Information</h2>
+    <p>Email: sc21trc@leeds.ac.uk</p>
+    <p>Phone: +447486409343</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/thomas-chernaik-611aa7226/" target="_blank">linkedin/thomas-chernaik-611aa7226/</a>
+    </p>
+    <p>GitHub: <a href="https://github.com/thomas-chernaik" target="_blank">github/thomas-chernaik</a></p>
+</section>
+<script>
+    // Check for saved theme choice and apply it (default dark)
+    const theme = localStorage.getItem('theme');
+    if (theme) {
+        if (theme === 'dark') {
+            toggleDarkMode();
+        }
+    } else {
+        toggleDarkMode();
+    }
+    //check if the screen is wide, and move the dark mode button to the navbar if it is
+    if (window.matchMedia("(min-width: 768px)").matches) {
+        const darkModeBtn = document.querySelector('.dark-mode-btn');
+        const nav = document.querySelector('nav');
+        nav.appendChild(darkModeBtn);
+    }
+</script>
 </body>
 </html>
