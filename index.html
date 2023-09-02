@@ -250,6 +250,109 @@
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
                     <span class="text-container">
+                    <video width="720" height="auto" controls>
+                        <source src="scribblesFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Scribbles</h2>
+                    <p class="text-container">Six second scribbles is a great card game which you should get to play with your family and friends.
+                        Unfortunately, my friends are living abroad this year, so I decided to make a web version of the game so we could play together.
+                        I used the python Flask library for this, as I was familiar with it from more than one past project. I used the flask-socketio library
+                        to handle the websockets, which I had not used before. I used the javascript library socket.io to handle the websockets on the client side.
+                        I used bootstrap to make the website look nice. I wanted the server to be able to handle multiple games at once, so I implemented a lobby system.
+                        One player would create a lobby, and then other players could join via a code. The players could then vote to start the game, which was communicated via websockets.
+                        There were many cards to type up from the card game, so I made a little website interface to type up the cards, which would then be saved to a file.
+                        In a game, players would make a drawing, which would be sent to the server, and then sent to the other players. The other players would then have to guess what the drawing was.
+                        I stored the images using a custom class I made which implemented pickling, and cleaned up the images after a certain time, and when a new round started.
+                        I deployed this project to azure, but it is no longer on there, as my student account expired. I have a private deployment I can use with friends, but I won't link here.
+                        <p></p>
+                        You can find the source code <a href="github.com/thomas-chernaik/scribbles"
+                                                        target="_blank">here</a>.
+                        </p>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                    <video width="720" height="auto" controls>
+                        <source src="chessFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Chess</h2>
+                    <p class="text-container">
+                        I have been using C++ for a little while now, but I wanted to make a project that would test my knowledge, and hopefully provide
+                        some learning experiences. I also wanted to make a game on a lower level than I had before, so I decided to make a chess game.
+                        I had used the QT library before for a university project, but I wanted to work at a lower level, so I decided to use the SDL2 library.
+                        I used the SDL2 library to create a window, and to handle input. I used the SDL2_image library to load images for the chess pieces.
+                        I implemented the game logic using some OO principles. It was in my mind while I was making it that I would want to make a chess AI at some point,
+                        so I made sure to keep the game logic, input handling, and rendering separate. I also had a way to store game states, so I could look ahead easily.
+                        Memory had to be dynamically allocated for the game states, so I used smart pointers to make sure that memory was freed when it was no longer needed.
+                        I have done several C projects, especially at university, so I was very familiar with using raw pointers to manage memory, but I wanted to use smart pointers
+                        to practice using them. I also implemented a feature to save and load from a file in the Forsyth–Edwards Notation (FEN) format, which is a standard format
+                        for chess states. I used this feature to test the game logic. I found that there was no need to implement checkmate, as the game logic I had implemented
+                        already handled it, as player where unable to make moves that would put them in checkmate, so when checkmate happened, a player would be unable to make a move.
+                        I implemented a feature to highlight the squares that a piece could move to, which was very useful for testing the game logic. In the future, I will make a chess AI
+                        using the minimax algorithm, and I will use the game logic I have already implemented.
+                        <p></p>
+                        You can find the source code <a href="github.com/thomas-chernaik/chess" target="_blank">here</a>.
+                        </p>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
+                    <video width="720" height="auto" controls>
+                        <source src="deliveriesFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>We suck at deliveries</h2>
+                    <p class="text-container">I competed in Ludum Dare 53, my first game jam. The theme was delivery, and there was a game I
+                    had wanted to make for a while which could be made as a delivery game. It was inspired by the car in the level select
+                    menu in the overcooked games, and came out very nicely. I made the game with one other person, and I contributed a lot of the gameplay code for this project, as well as
+                    some of the 3D art. I modeled the van and the pallets in Blender. I programmed a lightweight custom physics engine that allowed us
+                    to calculate collisions our van took with the environment without dealing with Unity's built-in physics engine. I also programmed the
+                    package distribution system. This involved keeping track of "collectors" and "spawners", where the collectors are houses the player
+                    must deliver packages to, and the spawners are the shops where the packages spawn in. For each package spawned, there must be a house which expects
+                    a package. Additionally, we had to keep track of packages that hadn't been delivered in a certain amount of time, so we could call the player out.
+                    All of the magic numbers involved here were put onto nice easily adjustable public variables, so we could easily tweak the gameplay, and speed up
+                        gameplay for what little testing we had time for.
+                        <p></p>
+                        You can find the ludum dare submission <a
+                            href="https://ldjam.com/events/ludum-dare/53/we-suck-at-deliveries" target="_blank">here</a>, and you can play the game jam version of the game <a
+                            href="https://thomas-chernaik.github.io/delv" target="_blank">here</a>.
+                        </p>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <img src="flashcard.png" alt="Placeholder Image" width="720" height="auto">
+                    <span class="text-container">
+                    <h2>Flashcards</h2>
+                    <p class="text-container">I took part in the great uni hack in late 2022. This
+                    was a great experience, where we created a full stack application in 24 hours.
+                        I worked with two other people, and we created a flashcard application, which would generate flashcards from your notes.
+                        About 8 months later, Quizlet released a feature which did exactly this, and we are looking to release a full version of our application soon.
+                        We used the python library flask for the backend, and wrote the frontend using node.js. This was before ChatGPT came out, so we used
+                        an LLM called Cohere to generate the flashcards. I worked on the backend, and implemented some of the database functionality, as well as
+                        some of the endpoints. I also worked with the LLM, and implemented some of the code to generate the flashcards.
+                        I am still currently working on this project, and we have changed some of our infrastructure, such as moving to nosql from SQLite, and
+                        movin to use chatgpt. My work currently has been on improving response times on the backend, and researching
+                        implementing a subscription system.
+                        <p></p>
+                        You can find the Hackathon version of the source code <a
+                            href="github.com/thomas-chernaik/pentatonicSquashed" target="_blank">here</a>.
+                        </p>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <span class="text-container">
                         <video width="720" height="auto" controls>
                             <source src="GrassFootage.mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -266,7 +369,7 @@
                             very happy with.
                         </p>
                         <a href="https://github.com/thomas-chernaik/ProceduralGrass"
-                           target-"_blank">Find the full source code here</a>
+                           target=_blank">Find the full source code here</a>
                     </span>
                 </div>
             </div>
@@ -281,7 +384,7 @@
                     <p> Following the procedural animation project, I decided to create my own FABRIK implementation for unity, having initially used another implementation.
             I then tested the FABRIK implementation with a simple procedurally animated cat.
         </p>
-        <a href="https://github.com/thomas-chernaik/FABRIK" target-"_blank">Find the full source code here</a>
+        <a href="https://github.com/thomas-chernaik/FABRIK" target="_blank">Find the full source code here</a>
                     </span>
                 </div>
             </div>
@@ -306,7 +409,7 @@
 
                         </p>
                         <a href="https://github.com/thomas-chernaik/tendrilMonster"
-                           target-"_blank">Find the full source code here</a>
+                           target="_blank">Find the full source code here</a>
                     </span>
                 </div>
             </div>
@@ -324,7 +427,7 @@
                     where the two clients communicate across the local network. The black cube is controlled by the left client and the white cube is controlled by the right client
                 </p>
                 <a href="https://github.com/thomas-chernaik/p2punitymultiplayer"
-                   target-"_blank">Find the full source code here</a>
+                   target="_blank">Find the full source code here</a>
                     </span>
                 </div>
             </div>
@@ -343,68 +446,12 @@
             the trails of the spores diffuse. Once I implemented these, I added the ability to influence the patterns
             of the spores with an image.
         </p>
-        <a href="https://github.com/thomas-chernaik/SlimeMould" target-"_blank">Find the full source code here</a>
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 custom-padding">
-                <div class="project">
-                    <span class="text-container">
-                    <video width="720" height="auto" controls>
-                        <source src="FABRIKFootage.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h2>We suck at deliveries</h2>
-                    <p class="text-container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae purus eget nunc
-                        gravida commodo vel eu
-                        FABRIK velit.</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 custom-padding">
-                <div class="project">
-                    <span class="text-container">
-                    <video width="720" height="auto" controls>
-                        <source src="FABRIKFootage.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h2>Chess</h2>
-                    <p class="text-container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae purus eget nunc
-                        gravida commodo vel eu
-                        FABRIK velit.</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 custom-padding">
-                <div class="project">
-                    <span class="text-container">
-                    <video width="720" height="auto" controls>
-                        <source src="FABRIKFootage.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h2>Scribbles</h2>
-                    <p class="text-container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae purus eget nunc
-                        gravida commodo vel eu
-                        FABRIK velit.</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 custom-padding">
-                <div class="project">
-                    <span class="text-container">
-                    <video width="720" height="auto" controls>
-                        <source src="FABRIKFootage.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h2>Flashcards</h2>
-                    <p class="text-container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae purus eget nunc
-                        gravida commodo vel eu
-                        FABRIK velit.</p>
+        <a href="https://github.com/thomas-chernaik/SlimeMould" target="_blank">Find the full source code here</a>
                     </span>
                 </div>
             </div>
 
-            <!-- Add more project sections as needed -->
+
         </div>
     </div>
 </section>
