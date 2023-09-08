@@ -156,7 +156,7 @@
 
         .dark-mode .gradient-button {
             background: linear-gradient(to bottom, rgba(31, 10, 50, 0.6), rgba(31, 10, 50, 1));
-            color: #e1d8c4;
+            color: #b09b71;
         }
 
         .dark-mode .gradient-button:hover {
@@ -171,7 +171,7 @@
             width: 100%;
             background: linear-gradient(to bottom, rgba(225, 216, 196, 0.6), rgba(225, 216, 196, 1));
             border: none;
-            color:#771D00;
+            color: #572579;
             padding: 0;
             margin: 0;
             cursor: pointer;
@@ -285,20 +285,20 @@
                 document.getElementById(id).querySelector('br').remove();
                 return;
             }
-            expandableDiv = document.getElementById(id);
+            let expandableDiv = document.getElementById(id);
             if (expandableDiv.style.maxHeight != expandableDiv.offsetWidth / 2 + "px") {
-                previousHeight = expandableDiv.scrollHeight; // Store the previous height
+                let previousHeight = expandableDiv.scrollHeight; // Store the previous height
                 expandableDiv.style.maxHeight = expandableDiv.offsetWidth / 2 + "px";
                 window.scrollBy(0, expandableDiv.offsetWidth / 2 - previousHeight);
                 document.getElementById(id).querySelector('.gradient-button').innerHTML = 'read more';
-                //make button text light
-                document.getElementById(id).querySelector('.gradient-button').style.fontWeight = 'lighter';
+                //make button text bold
+                document.getElementById(id).querySelector('.gradient-button').style.fontWeight = 'bold';
             } else {
                 expandableDiv.style.maxHeight = "1000px";
                 //change the button text for this specific button
                 document.getElementById(id).querySelector('.gradient-button').innerHTML = 'read less';
-                //make button text light
-                document.getElementById(id).querySelector('.gradient-button').style.fontWeight = 'lighter';
+                //make button text bold
+                document.getElementById(id).querySelector('.gradient-button').style.fontWeight = 'bold';
             }
 
 
@@ -355,8 +355,8 @@
                         images after a certain time, and when a new round started.
                         I deployed this project to azure, but it is no longer on there, as my student account expired. I
                         have a private deployment I can use with friends, but I won't link here.
-                        </br>
-                        </br>
+                        <br>
+                        <br>
                         <button class="gradient-button" onclick="expand('scribbles')">read more</button>
                     </div>
                     <hr class="rounded">
@@ -399,8 +399,8 @@
                         I implemented a feature to highlight the squares that a piece could move to, which was very
                         useful for testing the game logic. In the future, I will make a chess AI
                         using the minimax algorithm, and I will use the game logic I have already implemented.
-                        </br>
-                        </br>
+                        <br>
+                        <br>
                         <button class="gradient-button" onclick="expand('chess')">read more</button>
                     </div>
                     <hr class="solid">
@@ -436,8 +436,8 @@
                         All of the magic numbers involved here were put onto nice easily adjustable public variables, so
                         we could easily tweak the gameplay, and speed up
                         gameplay for what little testing we had time for.
-                        </br>
-                        </br>
+                        <br>
+                        <br>
                         <button class="gradient-button" onclick="expand('delv')">read more</button>
                     </div>
                     <hr class="solid">
@@ -472,8 +472,8 @@
                         movin to use chatgpt. My work currently has been on improving response times on the backend, and
                         researching
                         implementing a subscription system.
-                        </br>
-                        </br>
+                        <br>
+                        <br>
                         <button class="gradient-button" onclick="expand('flash')">read more</button>
                     </div>
                     <hr class="solid">
@@ -504,8 +504,8 @@
                         The final result is optimized enough that it runs at over 100 fps with 500000 visible blades,
                         which I am
                         very happy with.
-                        </br>
-                        </br>
+                        <br>
+                        <br>
                         <button class="gradient-button" onclick="expand('grass')">read more</button>
                     </div>
                     <hr class="solid">
@@ -554,8 +554,8 @@
                         clips the mesh down to the required size. By the end of my project I had produced a
                         monster-character with
                         convincing animation that can be player controlled.
-                        </br>
-                        </br>
+                        <br>
+                        <br>
                         <button class="gradient-button" onclick="expand('anim')">read more</button>
                     </div>
                     <hr class="solid">
@@ -581,8 +581,8 @@
                         before
                         where the two clients communicate across the local network. The black cube is controlled by the
                         left client and the white cube is controlled by the right client
-                        </br>
-                        </br>
+                        <br>
+                        <br>
                         <button class="gradient-button" onclick="expand('multi')">read more</button>
                     </div>
                     <hr class="solid">
@@ -607,8 +607,8 @@
                         the trails of the spores diffuse. Once I implemented these, I added the ability to influence the
                         patterns
                         of the spores with an image.
-                        </br>
-                        </br>
+                        <br>
+                        <br>
                         <button class="gradient-button" onclick="expand('spore')">read more</button>
                     </div>
                     <hr class="solid">
