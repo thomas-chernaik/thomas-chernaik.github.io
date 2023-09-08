@@ -154,12 +154,12 @@
             padding: 10px;
         }
 
-        .dark-mode .gradient-button{
+        .dark-mode .gradient-button {
             background: linear-gradient(to bottom, rgba(31, 10, 50, 0.6), rgba(31, 10, 50, 1));
-            color: white;
+            color: #e1d8c4;
         }
 
-        .dark-mode .gradient-button:hover{
+        .dark-mode .gradient-button:hover {
             background: linear-gradient(to bottom, rgba(31, 10, 50, 0.3), rgba(31, 10, 50, 1));
             color: white;
         }
@@ -171,7 +171,7 @@
             width: 100%;
             background: linear-gradient(to bottom, rgba(225, 216, 196, 0.6), rgba(225, 216, 196, 1));
             border: none;
-            color: black;
+            color:#771D00;
             padding: 0;
             margin: 0;
             cursor: pointer;
@@ -291,10 +291,14 @@
                 expandableDiv.style.maxHeight = expandableDiv.offsetWidth / 2 + "px";
                 window.scrollBy(0, expandableDiv.offsetWidth / 2 - previousHeight);
                 document.getElementById(id).querySelector('.gradient-button').innerHTML = 'read more';
+                //make button text light
+                document.getElementById(id).querySelector('.gradient-button').style.fontWeight = 'lighter';
             } else {
                 expandableDiv.style.maxHeight = "1000px";
                 //change the button text for this specific button
                 document.getElementById(id).querySelector('.gradient-button').innerHTML = 'read less';
+                //make button text light
+                document.getElementById(id).querySelector('.gradient-button').style.fontWeight = 'lighter';
             }
 
 
@@ -412,7 +416,8 @@
                         Your browser does not support the video tag.
                     </video>
                     <h2>We suck at deliveries</h2>
-                    <div id="delv" class="text-container">I competed in Ludum Dare 53, my first game jam. The theme was delivery,
+                    <div id="delv" class="text-container">I competed in Ludum Dare 53, my first game jam. The theme was
+                        delivery,
                         and there was a game I
                         had wanted to make for a while which could be made as a delivery game. It was inspired by the
                         car in the level select
@@ -485,7 +490,8 @@
                         Your browser does not support the video tag.
                     </video>
                     <h2>Procedural Grass</h2>
-                    <div id="grass" class="text-container">For this project I wanted to make grass similar to how grass works in some
+                    <div id="grass" class="text-container">For this project I wanted to make grass similar to how grass
+                        works in some
                         AAA games,
                         using real geometry for
                         each blade.
@@ -516,7 +522,8 @@
                         Your browser does not support the video tag.
                     </video>
                     <h2>FABRIK</h2>
-                    <div> Following the procedural animation project, I decided to create my own FABRIK implementation for
+                    <div> Following the procedural animation project, I decided to create my own FABRIK implementation
+                        for
                         unity, having initially used another implementation.
                         I then tested the FABRIK implementation with a simple procedurally animated cat.
                     </div>
@@ -531,7 +538,8 @@
                         Your browser does not support the video tag.
                     </video>
                     <h2>Procedural Animation</h2>
-                    <div id="anim" class="text-container"> To further my interest in procedural animation I decided to design a
+                    <div id="anim" class="text-container"> To further my interest in procedural animation I decided to
+                        design a
                         project which
                         would develop the skillset. This took the form of a procedurally animated
                         "tentacle monster" which can move around with convincing animation. I calculate new feet
@@ -564,7 +572,8 @@
                         Your browser does not support the video tag.
                     </video>
                     <h2>Peer to Peer multiplayer</h2>
-                    <div id="multi" class="text-container"> I set myself the challenge of designing a simple multiplayer system, as multiplayer is part of
+                    <div id="multi" class="text-container"> I set myself the challenge of designing a simple multiplayer
+                        system, as multiplayer is part of
                         many of the biggest modern games.
                         I wanted to use a udp peer to peer system, as this would require me to write code to communicate
                         over the internet, but wouldn't require usage of external hosting.
