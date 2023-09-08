@@ -60,6 +60,15 @@
             color: #b3b3f3; /* New text color for links with dark-mode class */
         }
 
+        /* dark mode bar style*/
+        .dark-mode hr {
+            border-top: 1px solid #b3b3f3;
+        }
+
+        hr {
+            border-top: 1px solid #333; /* Dark text color */
+        }
+
         /* Dark Mode/Light Mode Button Styles */
         .dark-mode button.dark-mode-btn {
             background-color: #f5f2e9; /* Light sandy background*/
@@ -130,7 +139,11 @@
         .text-container {
             max-width: 800px; /* Adjust the maximum width as needed */
             word-wrap: normal; /* Prevents word breaking */
+            position: relative;
+            /*stop text overflow*/
+            overflow: hidden;
         }
+
 
         /* Style the project cards with a sandy background */
         .project {
@@ -139,6 +152,41 @@
             border-radius: 10px;
             width: 100%;
             padding: 10px;
+        }
+
+        .dark-mode .gradient-button{
+            background: linear-gradient(to bottom, rgba(31, 10, 50, 0.6), rgba(31, 10, 50, 1));
+            color: white;
+        }
+
+        .dark-mode .gradient-button:hover{
+            background: linear-gradient(to bottom, rgba(31, 10, 50, 0.3), rgba(31, 10, 50, 1));
+            color: white;
+        }
+
+        .gradient-button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(225, 216, 196, 0.6), rgba(225, 216, 196, 1));
+            border: none;
+            color: black;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            text-align: left;
+            z-index: 2; /* Set a higher z-index to make sure the button is displayed in front */
+        }
+
+        .gradient-button:hover {
+            background: linear-gradient(to bottom, rgba(225, 216, 196, 0.3), rgba(225, 216, 196, 1));
+            color: black;
+        }
+
+        .gradient-button:focus {
+            outline: 2px solid #AAAAAA;
+
         }
 
         img {
@@ -229,6 +277,28 @@
                 });
             }
         }
+
+        function expand(id) {
+            //if the offsetwidth/2 is more than the height, the div can never be collapsed, so delete the button and the brs
+            if (document.getElementById(id).offsetWidth / 2 > document.getElementById(id).scrollHeight) {
+                document.getElementById(id).querySelector('.gradient-button').remove();
+                document.getElementById(id).querySelector('br').remove();
+                return;
+            }
+            expandableDiv = document.getElementById(id);
+            if (expandableDiv.style.maxHeight != expandableDiv.offsetWidth / 2 + "px") {
+                previousHeight = expandableDiv.scrollHeight; // Store the previous height
+                expandableDiv.style.maxHeight = expandableDiv.offsetWidth / 2 + "px";
+                window.scrollBy(0, expandableDiv.offsetWidth / 2 - previousHeight);
+                document.getElementById(id).querySelector('.gradient-button').innerHTML = 'read more';
+            } else {
+                expandableDiv.style.maxHeight = "1000px";
+                //change the button text for this specific button
+                document.getElementById(id).querySelector('.gradient-button').innerHTML = 'read less';
+            }
+
+
+        }
     </script>
 </head>
 <body>
@@ -255,81 +325,123 @@
         <div class="row">
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <span class="text-container">
                     <video width="720" height="auto" controls>
                         <source src="scribblesFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <h2>Scribbles</h2>
-                    <p class="text-container">Six second scribbles is a great card game which you should get to play with your family and friends.
-                        Unfortunately, my friends are living abroad this year, so I decided to make a web version of the game so we could play together.
-                        I used the python Flask library for this, as I was familiar with it from more than one past project. I used the flask-socketio library
-                        to handle the websockets, which I had not used before. I used the javascript library socket.io to handle the websockets on the client side.
-                        I used bootstrap to make the website look nice. I wanted the server to be able to handle multiple games at once, so I implemented a lobby system.
-                        One player would create a lobby, and then other players could join via a code. The players could then vote to start the game, which was communicated via websockets.
-                        There were many cards to type up from the card game, so I made a little website interface to type up the cards, which would then be saved to a file.
-                        In a game, players would make a drawing, which would be sent to the server, and then sent to the other players. The other players would then have to guess what the drawing was.
-                        I stored the images using a custom class I made which implemented pickling, and cleaned up the images after a certain time, and when a new round started.
-                        I deployed this project to azure, but it is no longer on there, as my student account expired. I have a private deployment I can use with friends, but I won't link here.
-                        <p></p>
+                    <div id="scribbles" class="text-container">Six second scribbles is a great card game which you
+                        should get to play
+                        with your family and friends.
+                        Unfortunately, my friends are living abroad this year, so I decided to make a web version of the
+                        game so we could play together.
+                        I used the python Flask library for this, as I was familiar with it from more than one past
+                        project. I used the flask-socketio library
+                        to handle the websockets, which I had not used before. I used the javascript library socket.io
+                        to handle the websockets on the client side.
+                        I used bootstrap to make the website look nice. I wanted the server to be able to handle
+                        multiple games at once, so I implemented a lobby system.
+                        One player would create a lobby, and then other players could join via a code. The players could
+                        then vote to start the game, which was communicated via websockets.
+                        There were many cards to type up from the card game, so I made a little website interface to
+                        type up the cards, which would then be saved to a file.
+                        In a game, players would make a drawing, which would be sent to the server, and then sent to the
+                        other players. The other players would then have to guess what the drawing was.
+                        I stored the images using a custom class I made which implemented pickling, and cleaned up the
+                        images after a certain time, and when a new round started.
+                        I deployed this project to azure, but it is no longer on there, as my student account expired. I
+                        have a private deployment I can use with friends, but I won't link here.
+                        </br>
+                        </br>
+                        <button class="gradient-button" onclick="expand('scribbles')">read more</button>
+                    </div>
+                    <hr class="rounded">
+                    <p>
                         You can find the source code <a href="github.com/thomas-chernaik/scribbles"
                                                         target="_blank">here</a>.
-                        </p>
-                    </span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <span class="text-container">
                     <video width="720" height="auto" controls>
                         <source src="chessFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <h2>Chess</h2>
-                    <p class="text-container">
-                        I have been using C++ for a little while now, but I wanted to make a project that would test my knowledge, and hopefully provide
-                        some learning experiences. I also wanted to make a game on a lower level than I had before, so I decided to make a chess game.
-                        I had used the QT library before for a university project, but I wanted to work at a lower level, so I decided to use the SDL2 library.
-                        I used the SDL2 library to create a window, and to handle input. I used the SDL2_image library to load images for the chess pieces.
-                        I implemented the game logic using some OO principles. It was in my mind while I was making it that I would want to make a chess AI at some point,
-                        so I made sure to keep the game logic, input handling, and rendering separate. I also had a way to store game states, so I could look ahead easily.
-                        Memory had to be dynamically allocated for the game states, so I used smart pointers to make sure that memory was freed when it was no longer needed.
-                        I have done several C projects, especially at university, so I was very familiar with using raw pointers to manage memory, but I wanted to use smart pointers
-                        to practice using them. I also implemented a feature to save and load from a file in the Forsyth–Edwards Notation (FEN) format, which is a standard format
-                        for chess states. I used this feature to test the game logic. I found that there was no need to implement checkmate, as the game logic I had implemented
-                        already handled it, as player where unable to make moves that would put them in checkmate, so when checkmate happened, a player would be unable to make a move.
-                        I implemented a feature to highlight the squares that a piece could move to, which was very useful for testing the game logic. In the future, I will make a chess AI
+                    <div id="chess" class="text-container">
+                        I have been using C++ for a little while now, but I wanted to make a project that would test my
+                        knowledge, and hopefully provide
+                        some learning experiences. I also wanted to make a game on a lower level than I had before, so I
+                        decided to make a chess game.
+                        I had used the QT library before for a university project, but I wanted to work at a lower
+                        level, so I decided to use the SDL2 library.
+                        I used the SDL2 library to create a window, and to handle input. I used the SDL2_image library
+                        to load images for the chess pieces.
+                        I implemented the game logic using some OO principles. It was in my mind while I was making it
+                        that I would want to make a chess AI at some point,
+                        so I made sure to keep the game logic, input handling, and rendering separate. I also had a way
+                        to store game states, so I could look ahead easily.
+                        Memory had to be dynamically allocated for the game states, so I used smart pointers to make
+                        sure that memory was freed when it was no longer needed.
+                        I have done several C projects, especially at university, so I was very familiar with using raw
+                        pointers to manage memory, but I wanted to use smart pointers
+                        to practice using them. I also implemented a feature to save and load from a file in the
+                        Forsyth–Edwards Notation (FEN) format, which is a standard format
+                        for chess states. I used this feature to test the game logic. I found that there was no need to
+                        implement checkmate, as the game logic I had implemented
+                        already handled it, as player where unable to make moves that would put them in checkmate, so
+                        when checkmate happened, a player would be unable to make a move.
+                        I implemented a feature to highlight the squares that a piece could move to, which was very
+                        useful for testing the game logic. In the future, I will make a chess AI
                         using the minimax algorithm, and I will use the game logic I have already implemented.
-                        <p></p>
+                        </br>
+                        </br>
+                        <button class="gradient-button" onclick="expand('chess')">read more</button>
+                    </div>
+                    <hr class="solid">
+                    <p>
                         You can find the source code <a href="github.com/thomas-chernaik/chess" target="_blank">here</a>.
-                        </p>
-                    </span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <span class="text-container">
                     <video width="720" height="auto" controls>
                         <source src="deliveriesFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <h2>We suck at deliveries</h2>
-                    <p class="text-container">I competed in Ludum Dare 53, my first game jam. The theme was delivery, and there was a game I
-                    had wanted to make for a while which could be made as a delivery game. It was inspired by the car in the level select
-                    menu in the overcooked games, and came out very nicely. I made the game with one other person, and I contributed a lot of the gameplay code for this project, as well as
-                    some of the 3D art. I modeled the van and the pallets in Blender. I programmed a lightweight custom physics engine that allowed us
-                    to calculate collisions our van took with the environment without dealing with Unity's built-in physics engine. I also programmed the
-                    package distribution system. This involved keeping track of "collectors" and "spawners", where the collectors are houses the player
-                    must deliver packages to, and the spawners are the shops where the packages spawn in. For each package spawned, there must be a house which expects
-                    a package. Additionally, we had to keep track of packages that hadn't been delivered in a certain amount of time, so we could call the player out.
-                    All of the magic numbers involved here were put onto nice easily adjustable public variables, so we could easily tweak the gameplay, and speed up
+                    <div id="delv" class="text-container">I competed in Ludum Dare 53, my first game jam. The theme was delivery,
+                        and there was a game I
+                        had wanted to make for a while which could be made as a delivery game. It was inspired by the
+                        car in the level select
+                        menu in the overcooked games, and came out very nicely. I made the game with one other person,
+                        and I contributed a lot of the gameplay code for this project, as well as
+                        some of the 3D art. I modeled the van and the pallets in Blender. I programmed a lightweight
+                        custom physics engine that allowed us
+                        to calculate collisions our van took with the environment without dealing with Unity's built-in
+                        physics engine. I also programmed the
+                        package distribution system. This involved keeping track of "collectors" and "spawners", where
+                        the collectors are houses the player
+                        must deliver packages to, and the spawners are the shops where the packages spawn in. For each
+                        package spawned, there must be a house which expects
+                        a package. Additionally, we had to keep track of packages that hadn't been delivered in a
+                        certain amount of time, so we could call the player out.
+                        All of the magic numbers involved here were put onto nice easily adjustable public variables, so
+                        we could easily tweak the gameplay, and speed up
                         gameplay for what little testing we had time for.
-                        <p></p>
+                        </br>
+                        </br>
+                        <button class="gradient-button" onclick="expand('delv')">read more</button>
+                    </div>
+                    <hr class="solid">
+                    <p>
                         You can find the ludum dare submission <a
-                            href="https://ldjam.com/events/ludum-dare/53/we-suck-at-deliveries" target="_blank">here</a>, and you can play the game jam version of the game <a
+                            href="https://ldjam.com/events/ludum-dare/53/we-suck-at-deliveries"
+                            target="_blank">here</a>, and you can play the game jam version of the game <a
                             href="https://thomas-chernaik.github.io/delv" target="_blank">here</a>.
-                        </p>
-                    </span>
+                    </p>
                 </div>
             </div>
 
@@ -337,123 +449,163 @@
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
                     <img src="flashcard.png" alt="Placeholder Image" width="720" height="auto">
-                    <span class="text-container">
                     <h2>Flashcards</h2>
-                    <p class="text-container">I took part in the great uni hack in late 2022. This
-                    was a great experience, where we created a full stack application in 24 hours.
-                        I worked with two other people, and we created a flashcard application, which would generate flashcards from your notes.
-                        About 8 months later, Quizlet released a feature which did exactly this, and we are looking to release a full version of our application soon.
-                        We used the python library flask for the backend, and wrote the frontend using node.js. This was before ChatGPT came out, so we used
-                        an LLM called Cohere to generate the flashcards. I worked on the backend, and implemented some of the database functionality, as well as
-                        some of the endpoints. I also worked with the LLM, and implemented some of the code to generate the flashcards.
-                        I am still currently working on this project, and we have changed some of our infrastructure, such as moving to nosql from SQLite, and
-                        movin to use chatgpt. My work currently has been on improving response times on the backend, and researching
+                    <div id="flash" class="text-container">I took part in the great uni hack in late 2022. This
+                        was a great experience, where we created a full stack application in 24 hours.
+                        I worked with two other people, and we created a flashcard application, which would generate
+                        flashcards from your notes.
+                        About 8 months later, Quizlet released a feature which did exactly this, and we are looking to
+                        release a full version of our application soon.
+                        We used the python library flask for the backend, and wrote the frontend using node.js. This was
+                        before ChatGPT came out, so we used
+                        an LLM called Cohere to generate the flashcards. I worked on the backend, and implemented some
+                        of the database functionality, as well as
+                        some of the endpoints. I also worked with the LLM, and implemented some of the code to generate
+                        the flashcards.
+                        I am still currently working on this project, and we have changed some of our infrastructure,
+                        such as moving to nosql from SQLite, and
+                        movin to use chatgpt. My work currently has been on improving response times on the backend, and
+                        researching
                         implementing a subscription system.
-                        <p></p>
+                        </br>
+                        </br>
+                        <button class="gradient-button" onclick="expand('flash')">read more</button>
+                    </div>
+                    <hr class="solid">
+                    <p>
                         You can find the Hackathon version of the source code <a
                             href="github.com/thomas-chernaik/pentatonicSquashed" target="_blank">here</a>.
-                        </p>
-                    </span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <span class="text-container">
-                        <video width="720" height="auto" controls>
-                            <source src="GrassFootage.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <h2>Procedural Grass</h2>
-                        <p class="text-container">For this project I wanted to make grass similar to how grass works in some AAA games,
-                            using real geometry for
-                            each blade.
-                            There are two stages to the grass generation. The first stage is in a compute shader which calculates a
-                            location and rotation for each blade.
-                            Then a stage in the surface shader calculates sway, lighting, colour, and if the blade is flattened by an
-                            object.
-                            The final result is optimized enough that it runs at over 100 fps with 500000 visible blades, which I am
-                            very happy with.
-                        </p>
+                    <video width="720" height="auto" controls>
+                        <source src="GrassFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Procedural Grass</h2>
+                    <div id="grass" class="text-container">For this project I wanted to make grass similar to how grass works in some
+                        AAA games,
+                        using real geometry for
+                        each blade.
+                        There are two stages to the grass generation. The first stage is in a compute shader which
+                        calculates a
+                        location and rotation for each blade.
+                        Then a stage in the surface shader calculates sway, lighting, colour, and if the blade is
+                        flattened by an
+                        object.
+                        The final result is optimized enough that it runs at over 100 fps with 500000 visible blades,
+                        which I am
+                        very happy with.
+                        </br>
+                        </br>
+                        <button class="gradient-button" onclick="expand('grass')">read more</button>
+                    </div>
+                    <hr class="solid">
+                    <p>You can find the full source code
                         <a href="https://github.com/thomas-chernaik/ProceduralGrass"
-                           target=_blank">Find the full source code here</a>
-                    </span>
+                           target=_blank">here</a>
+                    </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <span class="text-container">
                     <video width="720" height="auto" controls>
                         <source src="FABRIKFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <h2>FABRIK</h2>
-                    <p> Following the procedural animation project, I decided to create my own FABRIK implementation for unity, having initially used another implementation.
-            I then tested the FABRIK implementation with a simple procedurally animated cat.
-        </p>
-        <a href="https://github.com/thomas-chernaik/FABRIK" target="_blank">Find the full source code here</a>
-                    </span>
+                    <div> Following the procedural animation project, I decided to create my own FABRIK implementation for
+                        unity, having initially used another implementation.
+                        I then tested the FABRIK implementation with a simple procedurally animated cat.
+                    </div>
+                    <a href="https://github.com/thomas-chernaik/FABRIK" target="_blank">Find the full source code
+                        here</a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <span class="text-container">
-                        <video width="720" height="auto" controls>
+                    <video width="720" height="auto" controls>
                         <source src="monsterFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
-                        </video>
-                        <h2>Procedural Animation</h2>
-                        <p class="text-container"> To further my interest in procedural animation I decided to design a project which
-                            would develop the skillset. This took the form of a procedurally animated
-                            "tentacle monster" which can move around with convincing animation. I calculate new feet positions randomly
-                            in the direction of velocity so
-                            that a minimum number of tentacles are always in spawn. When feet reach a certain distance from the centre,
-                            they despawn, leading to new ones spawing.
-                            In order to have the tentacles convincingly spawn and despawn, I made a script to shrink the mesh. This is
-                            in the form of a compute shader which
-                            clips the mesh down to the required size. By the end of my project I had produced a monster-character with
-                            convincing animation that can be player controlled.
-
-                        </p>
+                    </video>
+                    <h2>Procedural Animation</h2>
+                    <div id="anim" class="text-container"> To further my interest in procedural animation I decided to design a
+                        project which
+                        would develop the skillset. This took the form of a procedurally animated
+                        "tentacle monster" which can move around with convincing animation. I calculate new feet
+                        positions randomly
+                        in the direction of velocity so
+                        that a minimum number of tentacles are always in spawn. When feet reach a certain distance from
+                        the centre,
+                        they despawn, leading to new ones spawing.
+                        In order to have the tentacles convincingly spawn and despawn, I made a script to shrink the
+                        mesh. This is
+                        in the form of a compute shader which
+                        clips the mesh down to the required size. By the end of my project I had produced a
+                        monster-character with
+                        convincing animation that can be player controlled.
+                        </br>
+                        </br>
+                        <button class="gradient-button" onclick="expand('anim')">read more</button>
+                    </div>
+                    <hr class="solid">
+                    <p>You can find the full source code
                         <a href="https://github.com/thomas-chernaik/tendrilMonster"
-                           target="_blank">Find the full source code here</a>
-                    </span>
+                           target="_blank">here</a>
+                    </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <span class="text-container">
                     <video width="720" height="auto" controls>
                         <source src="p2pmpFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <h2>Peer to Peer multiplayer</h2>
-                    <p> I set myself the challenge of designing a simple multiplayer system, as multiplayer is part of many of the biggest modern games.
-                    I wanted to use a udp peer to peer system, as this would require me to write code to communicate over the internet, but wouldn't require usage of external hosting.
-                    In the end, I successfully completed a peer to peer system in unity, as you can see in the video before
-                    where the two clients communicate across the local network. The black cube is controlled by the left client and the white cube is controlled by the right client
-                </p>
-                <a href="https://github.com/thomas-chernaik/p2punitymultiplayer"
-                   target="_blank">Find the full source code here</a>
-                    </span>
+                    <div id="multi" class="text-container"> I set myself the challenge of designing a simple multiplayer system, as multiplayer is part of
+                        many of the biggest modern games.
+                        I wanted to use a udp peer to peer system, as this would require me to write code to communicate
+                        over the internet, but wouldn't require usage of external hosting.
+                        In the end, I successfully completed a peer to peer system in unity, as you can see in the video
+                        before
+                        where the two clients communicate across the local network. The black cube is controlled by the
+                        left client and the white cube is controlled by the right client
+                        </br>
+                        </br>
+                        <button class="gradient-button" onclick="expand('multi')">read more</button>
+                    </div>
+                    <hr class="solid">
+                    <p>You can find the full source code
+                        <a href="https://github.com/thomas-chernaik/p2punitymultiplayer" target="_blank">here</a>
+                    </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <span class="text-container">
                     <video width="720" height="auto" controls>
                         <source src="slimeFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <h2>Slime mould simulation</h2>
-                    <p>I began this project after watching this
-<a href="https://www.youtube.com/watch?v=X-iSQQgOd1A&t=936s">youtube video in which a similar project is made.</a>
-            This project was where I learned how to use HLSL and compute shaders for the first time.
-            There are two main steps: A step in which the direction of each spore is calculated, and a step in which
-            the trails of the spores diffuse. Once I implemented these, I added the ability to influence the patterns
-            of the spores with an image.
-        </p>
-        <a href="https://github.com/thomas-chernaik/SlimeMould" target="_blank">Find the full source code here</a>
-                    </span>
+                    <div id="spore" class="text-container">I began this project after watching this <a
+                            href="https://www.youtube.com/watch?v=X-iSQQgOd1A&t=936s">youtube video in which a similar
+                        project is made.</a>
+                        This project was where I learned how to use HLSL and compute shaders for the first time.
+                        There are two main steps: A step in which the direction of each spore is calculated, and a step
+                        in which
+                        the trails of the spores diffuse. Once I implemented these, I added the ability to influence the
+                        patterns
+                        of the spores with an image.
+                        </br>
+                        </br>
+                        <button class="gradient-button" onclick="expand('spore')">read more</button>
+                    </div>
+                    <hr class="solid">
+                    <p>You can find the full source code
+                        <a href="https://github.com/thomas-chernaik/SlimeMould" target="_blank">here</a>
+                    </p>
                 </div>
             </div>
 
@@ -485,6 +637,21 @@
         const nav = document.querySelector('nav');
         nav.appendChild(darkModeBtn);
     }
+
+    projectsIDs = [
+        "chess",
+        "scribbles",
+        "delv",
+        "flash",
+        "grass",
+        "anim",
+        "multi",
+        "spore"
+    ]
+    //for each projectID, call expand on it
+    projectsIDs.forEach(id => {
+        expand(id);
+    });
 </script>
 </body>
 </html>
