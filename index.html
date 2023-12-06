@@ -327,6 +327,47 @@
 <section id="projects">
     <div class="container-fluid">
         <div class="row">
+             <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <video width="720" height="auto" controls>
+                        <source src="deliveriesFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>We suck at deliveries</h2>
+                    <div id="delv" class="text-container">I competed in Ludum Dare 53, my first game jam. The theme was
+                        delivery,
+                        and there was a game I
+                        had wanted to make for a while which could be made as a delivery game. It was inspired by the
+                        car in the level select
+                        menu in the overcooked games, and came out very nicely. I made the game with one other person,
+                        and I contributed a lot of the gameplay code for this project, as well as
+                        some of the 3D art. I modeled the van and the pallets in Blender. I programmed a lightweight
+                        custom physics engine that allowed us
+                        to calculate collisions our van took with the environment without dealing with Unity's built-in
+                        physics engine. I also programmed the
+                        package distribution system. This involved keeping track of "collectors" and "spawners", where
+                        the collectors are houses the player
+                        must deliver packages to, and the spawners are the shops where the packages spawn in. For each
+                        package spawned, there must be a house which expects
+                        a package. Additionally, we had to keep track of packages that hadn't been delivered in a
+                        certain amount of time, so we could call the player out.
+                        All of the magic numbers involved here were put onto nice easily adjustable public variables, so
+                        we could easily tweak the gameplay, and speed up
+                        gameplay for what little testing we had time for.
+                        <br>
+                        <br>
+                        <button class="gradient-button" onclick="expand('delv')">read more</button>
+                    </div>
+                    <hr class="solid">
+                    <p>
+                        You can find the ludum dare submission <a
+                            href="https://ldjam.com/events/ludum-dare/53/we-suck-at-deliveries"
+                            target="_blank">here</a>, and you can play the game jam version of the game <a
+                            href="https://thomas-chernaik.github.io/delv" target="_blank">here</a>.
+                    </p>
+                </div>
+            </div>
+
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
                     <video width="720" height="auto" controls>
@@ -409,47 +450,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12 custom-padding">
-                <div class="project">
-                    <video width="720" height="auto" controls>
-                        <source src="deliveriesFootage.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h2>We suck at deliveries</h2>
-                    <div id="delv" class="text-container">I competed in Ludum Dare 53, my first game jam. The theme was
-                        delivery,
-                        and there was a game I
-                        had wanted to make for a while which could be made as a delivery game. It was inspired by the
-                        car in the level select
-                        menu in the overcooked games, and came out very nicely. I made the game with one other person,
-                        and I contributed a lot of the gameplay code for this project, as well as
-                        some of the 3D art. I modeled the van and the pallets in Blender. I programmed a lightweight
-                        custom physics engine that allowed us
-                        to calculate collisions our van took with the environment without dealing with Unity's built-in
-                        physics engine. I also programmed the
-                        package distribution system. This involved keeping track of "collectors" and "spawners", where
-                        the collectors are houses the player
-                        must deliver packages to, and the spawners are the shops where the packages spawn in. For each
-                        package spawned, there must be a house which expects
-                        a package. Additionally, we had to keep track of packages that hadn't been delivered in a
-                        certain amount of time, so we could call the player out.
-                        All of the magic numbers involved here were put onto nice easily adjustable public variables, so
-                        we could easily tweak the gameplay, and speed up
-                        gameplay for what little testing we had time for.
-                        <br>
-                        <br>
-                        <button class="gradient-button" onclick="expand('delv')">read more</button>
-                    </div>
-                    <hr class="solid">
-                    <p>
-                        You can find the ludum dare submission <a
-                            href="https://ldjam.com/events/ludum-dare/53/we-suck-at-deliveries"
-                            target="_blank">here</a>, and you can play the game jam version of the game <a
-                            href="https://thomas-chernaik.github.io/delv" target="_blank">here</a>.
-                    </p>
-                </div>
-            </div>
-
+           
 
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
