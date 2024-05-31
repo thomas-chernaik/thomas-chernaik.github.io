@@ -330,6 +330,56 @@
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
                     <video width="720" height="auto" controls>
+                        <source src="gaussianFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Gaussian Splatting Rasteriser</h2>
+                    <div id="gauss" class="text-container">
+                        Gaussian splatting for radiance field rendering is a modern technique for rendering scenes, with benefits including the ability to convert from directly from a real video to a splatting scene, and alias-free rendering.
+                        I first read the paper on this technique in 2023, and decided to implement a renderer in C++ and OpenGL for my final year project at university.
+                        In order to acheive remotely real-time performance, the entire scene is rendered in a series of compute shaders, set up in a pipeline of my design.
+                        I had to implement a sorting pass, which required a GPU-based radix sort, as well as a pass to project the splats, and a pass to render the splats.
+                        You can read my full report, which includes a literature review, a description of the implementation, and a discussion of the results, <a href="project.pdf" target="_blank">here</a>.
+                        My implementation was able to render a scene with 100,000 splats at >30fps on AMD integrated graphics, and I achieved a mark of 71% for this project.
+                        <br>
+                        <br>
+                        <button class="gradient-button" onclick="expand('gauss')">read more</button>
+                    </div>
+                    <hr class="rounded">
+                    <p>
+                        Source code available on request.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <video width="720" height="auto" controls>
+                        <source src="rocketFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Rocket Demo</h2>
+                    <div id="rock" class="text-container">
+                        The second coursework for my computer graphics module was to create a rocket demo in OpenGL, where the rocket could be triggered to launch.
+                        This was a group project, and I was responsible for the base rendering, particle system, UI system, and animation system.
+                        The particle system was implemented using batch rendering, and the particles were rendered as untextured quads. I achieved performance of over 60fps with 2,000,000 particles by optimising the particle system to have as little computation as possible.
+                        The paths of each particle were pre-calculated, and the particles were rendered in a single draw call, with the location of each particle updated in the vertex shader with some simple interpolation of the path, based on the current time.
+                        The UI system was implemented using 2 custom classes I made, one for the text and one for the buttons. They both had negligible performance impact, and were implemented such that it was easy to add new buttons and text.
+                        The animation system was implemented by defining a mathematical function for the rocket to follow, and then interpolating the rocket's position and rotation based on the current time. This made it easy to reset and restart the rocket whenever wanted.
+                        The base rendering uses standard OpenGL techniques, such as VAOs, VBOs, and shaders, and a custom shader for each model, which allowed for real time lighting.
+                        The rocket demo was a great success, and I achieved a mark of 90% for this coursework.
+                        <br>
+                        <br>
+                        <button class="gradient-button" onclick="expand('rock')">read more</button>
+                    </div>
+                    <hr class="rounded">
+                    <p>
+                        Source code available on request.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <video width="720" height="auto" controls>
                         <source src="scribblesFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -648,6 +698,8 @@
     }
 
     projectsIDs = [
+        "gauss",
+        "rock",
         "chess",
         "scribbles",
         "delv",
@@ -660,6 +712,13 @@
     //for each projectID, call expand on it
     projectsIDs.forEach(id => {
         expand(id);
+    });
+    //on screen resize, expand and collapse all projects
+    window.addEventListener('resize', () => {
+        projectsIDs.forEach(id => {
+            expand(id);
+        });
+
     });
 </script>
 </body>
