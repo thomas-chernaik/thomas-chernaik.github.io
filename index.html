@@ -300,9 +300,11 @@
 
         function expand(id) {
             //if the offsetwidth/2 is more than the height, the div can never be collapsed, so delete the button and the brs
-            if (document.getElementById(id).offsetWidth / 4 > document.getElementById(id).scrollHeight) {
+            if (document.getElementById(id).offsetWidth / 4 > document.getElementById(id).scrollHeight - 10) {
                 document.getElementById(id).querySelector('.gradient-button').remove();
                 document.getElementById(id).querySelector('br').remove();
+                // set the min height to document.offsetWidth/4
+                document.getElementById(id).style.minHeight = document.getElementById(id).offsetWidth / 4 + "px";
                 return;
             }
             let expandableDiv = document.getElementById(id);
@@ -351,17 +353,16 @@
         <div class="row">
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video height="405" style="width: auto; max-height: 405px;" poster="vulkan.png">
-                        <!--                        <source src="vulkanFootage.mp4" type="video/mp4">-->
+                    <video height="405" style="width: auto; max-height: 405px;" poster=" Vulkan.png">
+                        <!--                        <source src=" VulkanFootage.mp4" type="video/mp4">-->
                         Your browser does not support the video tag.
                     </video>
                     <h2>Vulkan renderer</h2>
                     <div id="vulk" class="text-container">
-                        As part of my advanced rendering module, I had to implement a renderer in Vulkan and C++, with
+                        As part of my advanced rendering module, I implemented a renderer in Vulkan and C++, with
                         various
-                        features. First, I implemented a basic renderer, which could render a single triangle. Anyone
-                        who has done vulkan will know that simply rendering one triangle involves using lots of
-                        different components of the vulkan API. Once I had that one triangle, I could the progress to
+                        features. First, I implemented a basic renderer, which could render a single triangle. Simply rendering one triangle with Vulkan involves using lots of
+                        different components of the  Vulkan API. Once I had that one triangle, I could the progress to
                         rendering a scene (Sun temple), and allowing the camera to move about with standard wasd
                         controls.
                         I then implemented PBR shading and alpha masking for the leaves on the trees, as well as a few
@@ -369,7 +370,7 @@
                         used a naive deferred pipeline, before moving on to add shadow mapping, a post process bloom
                         effect using a separable gaussian filter, and normal mapping. I also implemented a couple more
                         debug views - overshading and mesh density. The hardest part of this project, apart from
-                        wrangling with vulkan synchronisation problems, was the shadow mapping. Implementing a shadowmap
+                        wrangling with  Vulkan synchronisation problems, was the shadow mapping. Implementing a shadowmap
                         for a single light was ok, but I wanted the ability to have many lights which cast shadows, and
                         managing all the resources while keeping everything synchronised was a challenge, but not one
                         that I couldn't overcome. I had a lot of fun making this and I hope to come back to it and add
@@ -399,7 +400,7 @@
                         OpenGL for my final year project at university.
                         In order to acheive remotely real-time performance, the entire scene is rendered in a series of
                         compute shaders, set up in a pipeline of my design.
-                        I had to implement a sorting pass, which required a GPU-based radix sort, as well as a pass to
+                        I implemented a sorting pass, which required a GPU-based radix sort, as well as a pass to
                         project the splats, and a pass to render the splats.
                         You can read my full report, which includes a literature review, a description of the
                         implementation, and a discussion of the results, <a href="project.pdf" target="_blank">here</a>.
@@ -425,7 +426,7 @@
                     </video>
                     <h2>Mesh processing toolkit</h2>
                     <div id="mesh" class="text-container">
-                        For a university project, I had to implement a mesh processing toolkit in C++.
+                        For a university project, I implemented a mesh processing toolkit in C++.
                         <br>
                         There were several features:
                         <ul>
@@ -598,7 +599,7 @@
                     </video>
                     <h2>Chess</h2>
                     <div id="chess" class="text-container">
-                        I have been using C++ for a little while now, but I wanted to make a project that would test my
+                        This was a project I did a while ago to improve my C++ skills. I wanted to make a project that would test my
                         knowledge, and hopefully provide
                         some learning experiences. I also wanted to make a game on a lower level than I had before, so I
                         decided to make a chess game.
@@ -693,7 +694,7 @@
                         the flashcards.
                         I am still currently working on this project, and we have changed some of our infrastructure,
                         such as moving to nosql from SQLite, and
-                        movin to use chatgpt. My work currently has been on improving response times on the backend, and
+                        moving to use chatgpt. My work currently has been on improving response times on the backend, and
                         researching
                         implementing a subscription system.
                         <br>
@@ -709,7 +710,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline poster="GrassFootage.png">
+                    <video height="405" style="width: auto; max-height: 405px;" muted playsinline poster="GrassFootage.png">
                         <source src="GrassFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -746,13 +747,19 @@
                         Your browser does not support the video tag.
                     </video>
                     <h2>FABRIK</h2>
-                    <div> Following the procedural animation project, I decided to create my own FABRIK implementation
+                    <div id="fabrik" class="text-container"> Following the procedural animation project, I decided to create my own FABRIK implementation
                         for
                         unity, having initially used another implementation.
                         I then tested the FABRIK implementation with a simple procedurally animated cat.
+                        <br>
+                        <br>
+                        <button class="gradient-button" onclick="expand('fabrik')">read more</button>
                     </div>
-                    <a href="https://github.com/thomas-chernaik/FABRIK" target="_blank">Find the full source code
-                        here</a>
+                    <hr class="solid">
+                    <p>You can find the full source code
+                        <a href="https://github.com/thomas-chernaik/FABRIK"
+                           target="_blank">here</a>
+                    </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
@@ -872,6 +879,7 @@
     }
 
     projectsIDs = [
+        "fabrik",
         "mesh",
         "vulk",
         "gauss",
