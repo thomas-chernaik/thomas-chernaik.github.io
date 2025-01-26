@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <style>
         /* Dark Mode Theme Styles */
         /* Style the body with a dark purple background color for dark mode */
@@ -79,6 +78,10 @@
         button.dark-mode-btn {
             background-color: #2a2253; /* Dark purple background */
             color: #fff; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
         }
 
         /* Reset some default browser styles */
@@ -95,6 +98,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            transition: background 0.2s linear;
         }
 
         /* Style the navigation menu with dark text on a light sandy background */
@@ -105,6 +109,8 @@
             position: sticky;
             top: 0;
             z-index: 100;
+              transition: background 0.2s linear;
+
         }
 
         /* Style the navbar links with larger size and wider spacing */
@@ -123,6 +129,8 @@
             color: #333; /* Dark text color */
             padding: 20px;
             text-align: center;
+              transition: background 0.2s linear;
+
         }
 
         /* Style the "About Me" section */
@@ -132,6 +140,8 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin: 20px;
             padding: 20px;
+              transition: background 0.2s linear;
+
 
         }
 
@@ -152,6 +162,8 @@
             border-radius: 10px;
             width: 100%;
             padding: 10px;
+              transition: background 0.2s linear;
+
         }
 
         .dark-mode .gradient-button {
@@ -280,16 +292,16 @@
 
         function expand(id) {
             //if the offsetwidth/2 is more than the height, the div can never be collapsed, so delete the button and the brs
-            if (document.getElementById(id).offsetWidth / 2 > document.getElementById(id).scrollHeight) {
+            if (document.getElementById(id).offsetWidth / 4 > document.getElementById(id).scrollHeight) {
                 document.getElementById(id).querySelector('.gradient-button').remove();
                 document.getElementById(id).querySelector('br').remove();
                 return;
             }
             let expandableDiv = document.getElementById(id);
-            if (expandableDiv.style.maxHeight != expandableDiv.offsetWidth / 2 + "px") {
+            if (expandableDiv.style.maxHeight != expandableDiv.offsetWidth / 4 + "px") {
                 let previousHeight = expandableDiv.scrollHeight; // Store the previous height
-                expandableDiv.style.maxHeight = expandableDiv.offsetWidth / 2 + "px";
-                window.scrollBy(0, expandableDiv.offsetWidth / 2 - previousHeight);
+                expandableDiv.style.maxHeight = expandableDiv.offsetWidth / 4 + "px";
+                window.scrollBy(0, expandableDiv.offsetWidth / 4 - previousHeight);
                 document.getElementById(id).querySelector('.gradient-button').innerHTML = 'read more';
                 //make button text bold
                 document.getElementById(id).querySelector('.gradient-button').style.fontWeight = 'bold';
@@ -314,7 +326,7 @@
 </nav>
 <header>
     <h1>Welcome to Thomas Chernaik's Portfolio</h1>
-    <button class="btn btn-primary dark-mode-btn" onclick="toggleDarkMode()">Dark Mode</button>
+    <button class="dark-mode-btn" onclick="toggleDarkMode()">Dark Mode</button>
 </header>
 <section id="about">
     <h2>About Me</h2>
@@ -329,21 +341,32 @@
         <div class="row">
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" controls>
-                        <source src="gaussianFootage.mp4" type="video/mp4">
+                    <video width="720" height="auto" poster="vulkan.png">
+                        <!--                        <source src="vulkanFootage.mp4" type="video/mp4">-->
                         Your browser does not support the video tag.
                     </video>
-                    <h2>Gaussian Splatting Rasteriser</h2>
-                    <div id="gauss" class="text-container">
-                        Gaussian splatting for radiance field rendering is a modern technique for rendering scenes, with benefits including the ability to convert from directly from a real video to a splatting scene, and alias-free rendering.
-                        I first read the paper on this technique in 2023, and decided to implement a renderer in C++ and OpenGL for my final year project at university.
-                        In order to acheive remotely real-time performance, the entire scene is rendered in a series of compute shaders, set up in a pipeline of my design.
-                        I had to implement a sorting pass, which required a GPU-based radix sort, as well as a pass to project the splats, and a pass to render the splats.
-                        You can read my full report, which includes a literature review, a description of the implementation, and a discussion of the results, <a href="project.pdf" target="_blank">here</a>.
-                        My implementation was able to render a scene with 100,000 splats at >30fps on AMD integrated graphics, and I achieved a first class grade for this project.
+                    <h2>Vulkan renderer</h2>
+                    <div id="vulk" class="text-container">
+                        As part of my advanced rendering module, I had to implement a renderer in Vulkan and C++, with
+                        various
+                        features. First, I implemented a basic renderer, which could render a single triangle. Anyone
+                        who has done vulkan will know that simply rendering one triangle involves using lots of
+                        different components of the vulkan API. Once I had that one triangle, I could the progress to
+                        rendering a scene (Sun temple), and allowing the camera to move about with standard wasd
+                        controls.
+                        I then implemented PBR shading and alpha masking for the leaves on the trees, as well as a few
+                        simple debug views such as a depth view and a mip map view. I then implemented a version which
+                        used a naive deferred pipeline, before moving on to add shadow mapping, a post process bloom
+                        effect using a separable gaussian filter, and normal mapping. I also implemented a couple more
+                        debug views - overshading and mesh density. The hardest part of this project, apart from
+                        wrangling with vulkan synchronisation problems, was the shadow mapping. Implementing a shadowmap
+                        for a single light was ok, but I wanted the ability to have many lights which cast shadows, and
+                        managing all the resources while keeping everything synchronised was a challenge, but not one
+                        that I couldn't overcome. I had a lot of fun making this and I hope to come back to it and add
+                        more features in the future.
                         <br>
                         <br>
-                        <button class="gradient-button" onclick="expand('gauss')">read more</button>
+                        <button class="gradient-button" onclick="expand('vulk')">read more</button>
                     </div>
                     <hr class="rounded">
                     <p>
@@ -353,19 +376,102 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" controls>
+                    <video width="720" height="auto" muted playsinline>
+                        <source src="mesh.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Mesh processing toolkit</h2>
+                    <div id="mesh" class="text-container">
+                        For a university project, I had to implement a mesh processing toolkit in C++.
+                        <br>
+                        There were several features:
+                        <ul>
+                            <li>Conversion from triangle soup to indexed face</li>
+                            <li>Conversion from indexed face to directed edge</li>
+                            <li>Manifold testing for meshes, including robust triangle-triangle intersection</li>
+                            <li>Topological analysis using Euler's formula</li>
+                            <li>Mesh repair</li>
+                            <li>Mesh simplification using curvature analysis</li>
+                        </ul>
+                        It was a fun coursework, with a few interesting challenges. The first challenge is making a
+                        triangle-triangle intersection test that is robust for this purpose. General methods are for
+                        real time applications (such as physics), and don't have suitable precision for this. Exploring
+                        different techniques to make it more robust was very interesting.
+                        The second challenge was trying to get the mesh repair to work for more complex cases. There are
+                        cases where it seems obvious to a human how a mesh should be repaired, but it is difficult to
+                        describe this repair as a general purpose algorithm. It was fun coming up with ways to overcome
+                        this. I received 98% for this coursework.
+                        <br>
+                        <br>
+                        <button class="gradient-button" onclick="expand('mesh')">read more</button>
+                    </div>
+                    <hr class="rounded">
+                    <p>
+                        You can find the source code <a
+                            href="https://github.com/thomas-chernaik/OpenGLGaussianSplattingRenderer"
+                            target="_blank">here</a>.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <video width="720" height="auto" muted playsinline>
+                        <source src="gaussianFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Gaussian Splatting Rasteriser</h2>
+                    <div id="gauss" class="text-container">
+                        Gaussian splatting for radiance field rendering is a modern technique for rendering scenes, with
+                        benefits including the ability to convert from directly from a real video to a splatting scene,
+                        and alias-free rendering.
+                        I first read the paper on this technique in 2023, and decided to implement a renderer in C++ and
+                        OpenGL for my final year project at university.
+                        In order to acheive remotely real-time performance, the entire scene is rendered in a series of
+                        compute shaders, set up in a pipeline of my design.
+                        I had to implement a sorting pass, which required a GPU-based radix sort, as well as a pass to
+                        project the splats, and a pass to render the splats.
+                        You can read my full report, which includes a literature review, a description of the
+                        implementation, and a discussion of the results, <a href="project.pdf" target="_blank">here</a>.
+                        My implementation was able to render a scene with 100,000 splats at >30fps on AMD integrated
+                        graphics, and I achieved a first class grade for this project.
+                        <br>
+                        <br>
+                        <button class="gradient-button" onclick="expand('gauss')">read more</button>
+                    </div>
+                    <hr class="rounded">
+                    <p>
+                        You can find the source code <a
+                            href="https://github.com/thomas-chernaik/OpenGLGaussianSplattingRenderer"
+                            target="_blank">here</a>.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <video width="720" height="auto" muted playsinline>
                         <source src="rocketFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <h2>Rocket Demo</h2>
                     <div id="rock" class="text-container">
-                        The second coursework for my computer graphics module was to create a rocket demo in OpenGL, where the rocket could be triggered to launch.
-                        This was a group project, and I was responsible for the base rendering, particle system, UI system, and animation system.
-                        The particle system was implemented using batch rendering, and the particles were rendered as untextured quads. I achieved performance of over 60fps with 2,000,000 particles by optimising the particle system to have as little computation as possible.
-                        The paths of each particle were pre-calculated, and the particles were rendered in a single draw call, with the location of each particle updated in the vertex shader with some simple interpolation of the path, based on the current time.
-                        The UI system was implemented using 2 custom classes I made, one for the text and one for the buttons. They both had negligible performance impact, and were implemented such that it was easy to add new buttons and text.
-                        The animation system was implemented by defining a mathematical function for the rocket to follow, and then interpolating the rocket's position and rotation based on the current time. This made it easy to reset and restart the rocket whenever wanted.
-                        The base rendering uses standard OpenGL techniques, such as VAOs, VBOs, and shaders, and a custom shader for each model, which allowed for real time lighting.
+                        The second coursework for my computer graphics module was to create a rocket demo in OpenGL,
+                        where the rocket could be triggered to launch.
+                        This was a group project, and I was responsible for the base rendering, particle system, UI
+                        system, and animation system.
+                        The particle system was implemented using batch rendering, and the particles were rendered as
+                        untextured quads. I achieved performance of over 60fps with 2,000,000 particles by optimising
+                        the particle system to have as little computation as possible.
+                        The paths of each particle were pre-calculated, and the particles were rendered in a single draw
+                        call, with the location of each particle updated in the vertex shader with some simple
+                        interpolation of the path, based on the current time.
+                        The UI system was implemented using 2 custom classes I made, one for the text and one for the
+                        buttons. They both had negligible performance impact, and were implemented such that it was easy
+                        to add new buttons and text.
+                        The animation system was implemented by defining a mathematical function for the rocket to
+                        follow, and then interpolating the rocket's position and rotation based on the current time.
+                        This made it easy to reset and restart the rocket whenever wanted.
+                        The base rendering uses standard OpenGL techniques, such as VAOs, VBOs, and shaders, and a
+                        custom shader for each model, which allowed for real time lighting.
                         The rocket demo was a great success, and I achieved a mark of 90% for this coursework.
                         <br>
                         <br>
@@ -379,7 +485,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" controls>
+                    <video width="720" height="auto" muted playsinline>
                         <source src="scribblesFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -411,14 +517,14 @@
                     </div>
                     <hr class="rounded">
                     <p>
-                        You can find the source code <a href="github.com/thomas-chernaik/scribbles"
+                        You can find the source code <a href="https://github.com/thomas-chernaik/sixsecondscribbles"
                                                         target="_blank">here</a>.
                     </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" controls>
+                    <video width="720" height="auto" muted playsinline>
                         <source src="chessFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -455,13 +561,13 @@
                     </div>
                     <hr class="solid">
                     <p>
-                        You can find the source code <a href="github.com/thomas-chernaik/chess" target="_blank">here</a>.
+                        You can find the source code <a href="https://github.com/thomas-chernaik/chess" target="_blank">here</a>.
                     </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" controls>
+                    <video id="delvvid" width="720" height="auto" muted playsinline>
                         <source src="deliveriesFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -535,7 +641,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" controls>
+                    <video width="720" height="auto" muted playsinline>
                         <source src="GrassFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -567,7 +673,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" controls>
+                    <video width="720" height="auto" muted playsinline>
                         <source src="FABRIKFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -583,7 +689,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" controls>
+                    <video width="720" height="auto" muted playsinline>
                         <source src="monsterFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -617,7 +723,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" controls>
+                    <video width="720" height="auto" muted playsinline>
                         <source src="p2pmpFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -643,7 +749,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" controls>
+                    <video width="720" height="auto" muted playsinline>
                         <source src="slimeFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -698,6 +804,8 @@
     }
 
     projectsIDs = [
+        "mesh",
+        "vulk",
         "gauss",
         "rock",
         "chess",
@@ -719,6 +827,55 @@
             expand(id);
         });
 
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const videos = document.querySelectorAll('video');
+
+        function playVideoOnScroll() {
+            videos.forEach(video => {
+                const rect = video.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+                    video.play();
+                    // if the id of the video is delvvid, then skip to 9 seconds
+                    if (video.id === 'delvvid' && video.currentTime < 9) {
+                        video.currentTime = 9;
+                    }
+                    // add the class "playing" to the video
+                    video.classList.add('playing');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', playVideoOnScroll);
+        playVideoOnScroll(); // Initial check in case any video is already in the viewport
+
+        // add an event listener to the video to pause it when it leaves the viewport
+        videos.forEach(video => {
+            video.addEventListener('pause', function () {
+                // pause the video
+                video.pause();
+            });
+        });
+
+        // add an event listener to restart the video when finished
+        videos.forEach(video => {
+            video.addEventListener('ended', function () {
+                // can just use the playonScroll function to play the video again
+                playVideoOnScroll();
+            });
+        });
+
+
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const skipVideo = document.getElementById('skipVideo');
+
+        skipVideo.addEventListener('play', function () {
+            if (skipVideo.currentTime < 9) {
+                skipVideo.currentTime = 9;
+            }
+        });
     });
 </script>
 </body>
