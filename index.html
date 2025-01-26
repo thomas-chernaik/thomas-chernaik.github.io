@@ -338,10 +338,13 @@
 </header>
 <section id="about">
     <h2>About Me</h2>
-    <p class="text-container">Fourth year computer science with high performance graphics and games engineering
-        undergraduate at the University of Leeds, expected graduate with first class honours BSc, MEng in 2025. Team
-        player in group projects and for a university hockey team. Experience with personal and educational projects in
-        Python since 2018, C# since 2020 and C++ since 2022. Aspiring to work as a Game Developer.</p>
+    <p class="text-container">Fourth year Computer Science student at the University of Leeds, specializing in
+        high-performance graphics and games engineering, with a focus on real-time rendering systems and
+        high-performance C/C++ programming. Developed a deferred & forward PBR rendering system using Vulkan, as well as
+        geometric mesh repair/simplification tools. Engineered a GPU-native Gaussian splatting rasteriser from scratch,
+        utilizing compute shaders and parallel sorting to render 2M+ splats interactively on integrated hardware.
+        Passionate about advancing real-time graphics and solving problems to create new, prettier, high-performance
+        solutions.</p>
 </section>
 <section id="projects">
     <div class="container-fluid">
@@ -383,7 +386,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
+                    <video width="720" height="auto" muted playsinline poster="gaussianFootage.png">
                         <source src="gaussianFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -416,7 +419,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
+                    <video width="720" height="auto" muted playsinline poster="mesh.png">
                         <source src="mesh.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -461,7 +464,8 @@
                     </video>
                     <h2>NEE Pathtracer</h2>
                     <div id="raytrace" class="text-container">
-                        This project involved implementing, first a raytracer, then a monte carlo pathtracer in C++. It was a fun project, and I implemented the following features for it:
+                        This project involved implementing, first a raytracer, then a monte carlo pathtracer in C++. It
+                        was a fun project, and I implemented the following features for it:
                         <ul>
                             <li>Ray-triangle intersection</li>
                             <li>PBR phong shading model</li>
@@ -486,7 +490,33 @@
 
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
+                    <video height="405" style="width: auto; max-height: 405px;" muted playsinline poster="doom.png">
+                        <source src="doom.webm" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Dodecahedra of doom</h2>
+                    <div id="doom" class="text-container">
+                        This project involved two main parts. The first was to implement a skeletal animation system,
+                        taking bvh files, and using them to animate a running skeleton. This involved taking the
+                        animation data, using it to pose the skeleton correctly, and updating the pose used as the
+                        character runs, and blending between animations when the character starts and stops.
+                        <br>
+                        The second part was to implement a simple physics engine, which could handle collisions between
+                        spheres at first, then moving on to a more complex (and spinnable) mesh of a dodecahedron.
+                        <br>
+                        <br>
+                        <button class="gradient-button" onclick="expand('raytrace')">read more</button>
+                    </div>
+                    <hr class="rounded">
+                    <p>
+                        Source code available on request.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <video width="720" height="auto" muted playsinline poster="rocketFootage.png">
                         <source src="rocketFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -523,7 +553,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
+                    <video width="720" height="auto" muted playsinline poster="scribblesFootage.png">
                         <source src="scribblesFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -562,7 +592,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
+                    <video width="720" height="auto" muted playsinline poster="chessFootage.png">
                         <source src="chessFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -605,7 +635,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video id="delvvid" width="720" height="auto" muted playsinline>
+                    <video id="delvvid" width="720" height="auto" muted playsinline poster="deliveriesFootage.png">
                         <source src="deliveriesFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -679,7 +709,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
+                    <video width="720" height="auto" muted playsinline poster="GrassFootage.png">
                         <source src="GrassFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -711,7 +741,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
+                    <video width="720" height="auto" muted playsinline poster="FABRIKFootage.png">
                         <source src="FABRIKFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -727,7 +757,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
+                    <video width="720" height="auto" muted playsinline poster="monsterFootage.png">
                         <source src="monsterFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -761,7 +791,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
+                    <video width="720" height="auto" muted playsinline poster="p2pmpFootage.png">
                         <source src="p2pmpFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -787,7 +817,7 @@
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
+                    <video width="720" height="auto" muted playsinline poster="slimeFootage.png">
                         <source src="slimeFootage.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -855,6 +885,7 @@
         "multi",
         "spore",
         "raytrace",
+        "doom",
     ]
     //for each projectID, call expand on it
     projectsIDs.forEach(id => {
