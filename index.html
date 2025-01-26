@@ -891,13 +891,6 @@
     projectsIDs.forEach(id => {
         expand(id);
     });
-    //on screen resize, expand and collapse all projects
-    window.addEventListener('resize', () => {
-        projectsIDs.forEach(id => {
-            expand(id);
-        });
-
-    });
 
     document.addEventListener('DOMContentLoaded', function () {
         const videos = document.querySelectorAll('video');
