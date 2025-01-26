@@ -172,11 +172,13 @@
         .dark-mode .gradient-button {
             background: linear-gradient(to bottom, rgba(31, 10, 50, 0.6), rgba(31, 10, 50, 1));
             color: #b09b71;
+            transition: background 0.2s linear;
         }
 
         .dark-mode .gradient-button:hover {
             background: linear-gradient(to bottom, rgba(31, 10, 50, 0.3), rgba(31, 10, 50, 1));
             color: white;
+            transition: background 0.2s linear;
         }
 
         .gradient-button {
@@ -192,11 +194,14 @@
             cursor: pointer;
             text-align: left;
             z-index: 2; /* Set a higher z-index to make sure the button is displayed in front */
+            transition: background 0.2s linear;
         }
 
         .gradient-button:hover {
             background: linear-gradient(to bottom, rgba(225, 216, 196, 0.3), rgba(225, 216, 196, 1));
             color: black;
+            transition: background 0.2s linear;
+
         }
 
         .gradient-button:focus {
@@ -372,8 +377,40 @@
                     </div>
                     <hr class="rounded">
                     <p>
-                        Source code available <a
-                            href="https://github.com/thomas-chernaik/OpenGLGaussianSplattingRenderer" target="_blank">here</a>.
+                        Source code available on request.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 custom-padding">
+                <div class="project">
+                    <video width="720" height="auto" muted playsinline>
+                        <source src="gaussianFootage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Gaussian Splatting Rasteriser</h2>
+                    <div id="gauss" class="text-container">
+                        Gaussian splatting for radiance field rendering is a modern technique for rendering scenes, with
+                        benefits including the ability to convert from directly from a real video to a splatting scene,
+                        and alias-free rendering.
+                        I first read the paper on this technique in 2023, and decided to implement a renderer in C++ and
+                        OpenGL for my final year project at university.
+                        In order to acheive remotely real-time performance, the entire scene is rendered in a series of
+                        compute shaders, set up in a pipeline of my design.
+                        I had to implement a sorting pass, which required a GPU-based radix sort, as well as a pass to
+                        project the splats, and a pass to render the splats.
+                        You can read my full report, which includes a literature review, a description of the
+                        implementation, and a discussion of the results, <a href="project.pdf" target="_blank">here</a>.
+                        My implementation was able to render a scene with 100,000 splats at >30fps on AMD integrated
+                        graphics, and I achieved a first class grade for this project.
+                        <br>
+                        <br>
+                        <button class="gradient-button" onclick="expand('gauss')">read more</button>
+                    </div>
+                    <hr class="rounded">
+                    <p>
+                        You can find the source code <a
+                            href="https://github.com/thomas-chernaik/OpenGLGaussianSplattingRenderer"
+                            target="_blank">here</a>.
                     </p>
                 </div>
             </div>
@@ -411,44 +448,42 @@
                     <hr class="rounded">
                     <p>
                         You can find the source code <a
-                            href="https://github.com/thomas-chernaik/OpenGLGaussianSplattingRenderer"
+                            href="https://github.com/thomas-chernaik/Mesh-processing-toolkit"
                             target="_blank">here</a>.
                     </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" muted playsinline>
-                        <source src="gaussianFootage.mp4" type="video/mp4">
+                    <video height="405" style="width: auto; max-height: 405px;" muted playsinline poster="raytrace.png">
+                        <source src="raytrace.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <h2>Gaussian Splatting Rasteriser</h2>
-                    <div id="gauss" class="text-container">
-                        Gaussian splatting for radiance field rendering is a modern technique for rendering scenes, with
-                        benefits including the ability to convert from directly from a real video to a splatting scene,
-                        and alias-free rendering.
-                        I first read the paper on this technique in 2023, and decided to implement a renderer in C++ and
-                        OpenGL for my final year project at university.
-                        In order to acheive remotely real-time performance, the entire scene is rendered in a series of
-                        compute shaders, set up in a pipeline of my design.
-                        I had to implement a sorting pass, which required a GPU-based radix sort, as well as a pass to
-                        project the splats, and a pass to render the splats.
-                        You can read my full report, which includes a literature review, a description of the
-                        implementation, and a discussion of the results, <a href="project.pdf" target="_blank">here</a>.
-                        My implementation was able to render a scene with 100,000 splats at >30fps on AMD integrated
-                        graphics, and I achieved a first class grade for this project.
+                    <h2>C++ pathtracer</h2>
+                    <div id="raytrace" class="text-container">
+                        This project involved implementing, first a raytracer, then a monte carlo pathtracer in C++. It was a fun project, and I implemented the following features for it:
+                        <ul>
+                            <li>Ray-triangle intersection</li>
+                            <li>PBR phong shading model</li>
+                            <li>Monte carlo path tracing</li>
+                            <li>Refraction</li>
+                            <li>Reflection</li>
+                            <li>Soft shadows</li>
+                            <li>Anti aliasing</li>
+                            <li>Importance sampling using next event estimation</li>
+                            <li>Fresnel</li>
+                        </ul>
                         <br>
                         <br>
-                        <button class="gradient-button" onclick="expand('gauss')">read more</button>
+                        <button class="gradient-button" onclick="expand('raytrace')">read more</button>
                     </div>
                     <hr class="rounded">
                     <p>
-                        You can find the source code <a
-                            href="https://github.com/thomas-chernaik/OpenGLGaussianSplattingRenderer"
-                            target="_blank">here</a>.
+                        Source code available on request.
                     </p>
                 </div>
             </div>
+
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
                     <video width="720" height="auto" muted playsinline>
@@ -818,7 +853,8 @@
         "grass",
         "anim",
         "multi",
-        "spore"
+        "spore",
+        "raytrace",
     ]
     //for each projectID, call expand on it
     projectsIDs.forEach(id => {
