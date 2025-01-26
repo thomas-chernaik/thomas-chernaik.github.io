@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
         /* Dark Mode Theme Styles */
@@ -109,7 +112,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-              transition: background 0.2s linear;
+            transition: background 0.2s linear;
 
         }
 
@@ -129,7 +132,7 @@
             color: #333; /* Dark text color */
             padding: 20px;
             text-align: center;
-              transition: background 0.2s linear;
+            transition: background 0.2s linear;
 
         }
 
@@ -140,7 +143,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin: 20px;
             padding: 20px;
-              transition: background 0.2s linear;
+            transition: background 0.2s linear;
 
 
         }
@@ -162,7 +165,7 @@
             border-radius: 10px;
             width: 100%;
             padding: 10px;
-              transition: background 0.2s linear;
+            transition: background 0.2s linear;
 
         }
 
@@ -330,14 +333,17 @@
 </header>
 <section id="about">
     <h2>About Me</h2>
-    <p class="text-container">Fourth year computer science with high performance graphics and games engineering undergraduate at the University of Leeds, expected graduate with first class honours BSc, MEng in 2025. Team player in group projects and for a university hockey team. Experience with personal and educational projects in Python since 2018, C# since 2020 and C++ since 2022. Aspiring to work as a Game Developer.</p>
+    <p class="text-container">Fourth year computer science with high performance graphics and games engineering
+        undergraduate at the University of Leeds, expected graduate with first class honours BSc, MEng in 2025. Team
+        player in group projects and for a university hockey team. Experience with personal and educational projects in
+        Python since 2018, C# since 2020 and C++ since 2022. Aspiring to work as a Game Developer.</p>
 </section>
 <section id="projects">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 col-sm-12 custom-padding">
                 <div class="project">
-                    <video width="720" height="auto" poster="vulkan.png">
+                    <video height="405" style="width: auto; max-height: 405px;" poster="vulkan.png">
                         <!--                        <source src="vulkanFootage.mp4" type="video/mp4">-->
                         Your browser does not support the video tag.
                     </video>
@@ -366,7 +372,8 @@
                     </div>
                     <hr class="rounded">
                     <p>
-                        Source code available <a href="https://github.com/thomas-chernaik/OpenGLGaussianSplattingRenderer" target="_blank">here</a>.
+                        Source code available <a
+                            href="https://github.com/thomas-chernaik/OpenGLGaussianSplattingRenderer" target="_blank">here</a>.
                     </p>
                 </div>
             </div>
@@ -846,13 +853,6 @@
         window.addEventListener('scroll', playVideoOnScroll);
         playVideoOnScroll(); // Initial check in case any video is already in the viewport
 
-        // add an event listener to the video to pause it when it leaves the viewport
-        videos.forEach(video => {
-            video.addEventListener('pause', function () {
-                // pause the video
-                video.pause();
-            });
-        });
 
         // add an event listener to restart the video when finished
         videos.forEach(video => {
@@ -863,6 +863,22 @@
         });
 
 
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const videos = document.querySelectorAll('video');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    entry.target.pause();
+                }
+            });
+        }, {threshold: 0.1});
+
+        videos.forEach(video => {
+            observer.observe(video);
+        });
     });
     document.addEventListener('DOMContentLoaded', function () {
         const skipVideo = document.getElementById('skipVideo');
